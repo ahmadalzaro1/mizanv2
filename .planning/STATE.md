@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T20:58:35.180Z"
+last_updated: "2026-03-02T21:03:15.509Z"
 progress:
   total_phases: 9
   completed_phases: 1
@@ -117,6 +117,9 @@ Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
 | AI explanation assertions use OR pattern | hasAIExplanation OR hasFallback — tolerates cold ML model startup in CI/pre-warm scenarios |
 | Training test labels 3/20 items only | Sufficient to exercise not_hate, hate+category two-step, calibration score transition, and back navigation without filling DB history |
 
+### Roadmap Evolution
+- Phase 09.1 inserted after Phase 9: Bias Auditor Rework (INSERTED) — rethink the feature for more value
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -127,9 +130,15 @@ Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
 
 ## Session Continuity
 
-**Last updated**: 2026-03-02T20:57Z
-**Last action**: Completed Plan 9.2 — E2E Test Suite Implementation (5 tasks, 5 files created, 5 commits). 18 Playwright tests across auth, dashboard, observatory, bias-auditor, training specs.
-**Next action**: PLATFORM COMPLETE — Run `npx playwright test` with Docker Compose stack for final E2E validation before hackathon pitch.
+**Last updated**: 2026-03-03
+**Last action**: Inserted Phase 09.1 — Bias Auditor Rework. Brainstorming what to do with the feature.
+**Next action**: Research and discuss Phase 09.1 direction.
+
+**Session 2026-03-03 bug fix results:**
+- Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
+- Observatory: replaced ORM query with raw SQL to bypass `JhscLabel` enum `LookupError`
+- E2E: fixed dashboard selectors (`.grid a`), observatory legend (`span` filter), training category (`.first()`), back-nav (label before back)
+- Files modified: `backend/app/routers/observatory.py`, `frontend/e2e/dashboard.spec.ts`, `frontend/e2e/observatory.spec.ts`, `frontend/e2e/training.spec.ts`
 
 **Phase 8 results:**
 - CRITICAL BUG FIXED: observatory-api.ts + audit-api.ts now use shared `api` instance (reads `mizan_token`, respects `VITE_API_URL`)
