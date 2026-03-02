@@ -74,11 +74,31 @@
 
 ## Traceability
 
-| REQ-ID | Phase |
-|--------|-------|
-| TRAIN-01 to TRAIN-07 | Phase 3 |
-| DATA-01 to DATA-04 | Phase 2 |
-| AI-01 to AI-04 | Phase 4 |
-| ADMIN-01 to ADMIN-04 | Phase 7 |
-| AUTH-01 to AUTH-04 | Phase 1 |
-| UI-01 to UI-03 | Phase 3 |
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| AUTH-01 | Phase 1: Foundation | Pending |
+| AUTH-02 | Phase 1: Foundation | Pending |
+| AUTH-03 | Phase 1: Foundation | Pending |
+| AUTH-04 | Phase 1: Foundation | Pending |
+| DATA-01 | Phase 2: Data Pipeline | Pending |
+| DATA-02 | Phase 2: Data Pipeline | Pending |
+| DATA-03 | Phase 2: Data Pipeline | Pending |
+| DATA-04 | Phase 2: Data Pipeline | Pending |
+| TRAIN-01 | Phase 3: Moderator Training UI | Pending |
+| TRAIN-02 | Phase 3: Moderator Training UI | Pending |
+| TRAIN-05 | Phase 3: Moderator Training UI | Pending |
+| TRAIN-07 | Phase 3: Moderator Training UI | Pending |
+| UI-01 | Phase 3: Moderator Training UI | Pending |
+| UI-02 | Phase 3: Moderator Training UI | Pending |
+| UI-03 | Phase 3: Moderator Training UI | Pending |
+| AI-01 | Phase 4: MARBERT Inference API | Pending |
+| AI-03 | Phase 4: MARBERT Inference API | Pending |
+| AI-04 | Phase 4: MARBERT Inference API | Pending |
+| AI-02 | Phase 5: AI Explanation Layer | Pending |
+| TRAIN-03 | Phase 5: AI Explanation Layer | Pending |
+| TRAIN-04 | Phase 5: AI Explanation Layer | Pending |
+| TRAIN-06 | Phase 6: Calibration Scoring | Pending |
+| ADMIN-01 | Phase 7: Admin Dashboard | Pending |
+| ADMIN-02 | Phase 7: Admin Dashboard | Pending |
+| ADMIN-03 | Phase 7: Admin Dashboard | Pending |
+| ADMIN-04 | Phase 7: Admin Dashboard | Pending |
