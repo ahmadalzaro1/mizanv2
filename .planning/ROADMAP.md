@@ -1,21 +1,26 @@
 # Roadmap — Mizan
 
-> Mizan (ميزان) — Arabic hate speech moderator training platform.
-> Hackathon deadline: JYIF Generative AI National Social Hackathon, Jordan.
-> Demo goal: Show a tweet → moderator labels it → MARBERT classifies it → AI explanation appears in Arabic.
+> Mizan (ميزان) — Arabic hate speech platform with three components:
+> 1. **Moderator Training** (Khaled) — AI-assisted labeling, calibration scoring
+> 2. **Observatory** (Rania) — 8-year Jordanian hate speech trend analysis
+> 3. **Bias Auditor** (Lina) — MARBERT fairness breakdown by hate category
+>
+> Hackathon: JYIF Generative AI National Social Hackathon, Jordan. 5-minute pitch.
+> Demo goal: All three personas served in a single walkthrough.
 
 ---
 
 ## Phases
 
-- [ ] **Phase 1: Foundation** — Project scaffold, database schema, auth, environment setup
-- [ ] **Phase 2: Data Pipeline** — Seed JHSC/OSACT5 data with ground-truth labels into DB
+- [x] **Phase 1: Foundation** — Project scaffold, database schema, auth, environment setup *(complete)*
+- [ ] **Phase 2: Data Pipeline** — Seed JHSC/OSACT5/L-HSAB/Let-Mi data with ground-truth labels + compute observatory metrics
 - [ ] **Phase 3: Moderator Training UI** — RTL Arabic labeling interface (the demo core)
 - [ ] **Phase 4: MARBERT Inference API** — Classification endpoint with confidence score
 - [ ] **Phase 5: AI Explanation Layer** — Arabic-language reasoning explanation per classification
 - [ ] **Phase 6: Calibration Scoring** — Per-moderator agreement tracking, live score display
-- [ ] **Phase 7: Admin Dashboard** — Institution-level analytics, session management, export
-- [ ] **Phase 8: Demo Polish** — Sample data path, performance tuning, pitch-ready UI
+- [ ] **Phase 7: Analytics & Research Layer** — Observatory trend charts + Bias Auditor breakdown
+- [ ] **Phase 8: Demo Polish** — Three-persona demo path, performance tuning, pitch-ready UI
+- [ ] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow
 
 ---
 
@@ -25,25 +30,46 @@
 **Goal**: A developer can run the full stack locally with authentication working and the database ready to accept data.
 **Depends on**: Nothing
 **Requirements**: AUTH-01, AUTH-02, AUTH-03, AUTH-04
-**Success Criteria** (what must be TRUE):
-  1. Running `docker compose up` (or equivalent) starts the FastAPI backend, React frontend, and PostgreSQL instance without errors.
-  2. A new user can register with email and password, then log in and remain logged in across browser refreshes.
+**Success Criteria**:
+  1. Running `docker compose up` starts the FastAPI backend, React frontend, and PostgreSQL without errors.
+  2. A new user can register with email and password, log in, and remain logged in across browser refreshes.
   3. An institution admin can add a moderator account to their organization.
-  4. A moderator who logs in only sees content and sessions scoped to their institution — not data from other institutions.
-**Plans**: TBD
+  4. A moderator who logs in only sees content and sessions scoped to their institution.
+**Plans**: 4 plans — `.planning/phases/1-PLAN.md`
+- Plan 1.1: Project Scaffold & Docker Compose
+- Plan 1.2: Database Schema & Alembic Migrations
+- Plan 1.3: FastAPI Auth API
+- Plan 1.4: React Frontend Auth
 
 ---
 
 ### Phase 2: Data Pipeline
-**Goal**: The database contains 100+ pre-seeded Jordanian Arabic examples with ground-truth labels and metadata, ready for a training session.
+**Goal**: The database contains 100+ pre-seeded Arabic examples with ground-truth labels drawn from multiple validated datasets AND the JHSC temporal dataset is loaded and queryable for observatory use.
 **Depends on**: Phase 1
-**Requirements**: DATA-01, DATA-02, DATA-03, DATA-04
-**Success Criteria** (what must be TRUE):
-  1. Running the seed script populates the database with at least 100 examples sourced from JHSC and OSACT5.
-  2. Each example in the database has a ground-truth hate/not-hate label plus a hate type (from the 9-category schema).
-  3. Each example is tagged with dialect (Jordanian/Levantine), content type, and hate category — queryable via the API.
-  4. An admin can trigger a CSV or JSON export of all annotations and receive a valid, parseable file.
-**Plans**: TBD
+**Requirements**: DATA-01, DATA-02, DATA-03, DATA-04, OBS-01
+**Data Sources** (confirmed + available locally — 2026-03-02):
+  - **JHSC** — 302,766 Jordanian tweets (2014–2022). Labels: neutral/positive/negative/very positive. Map `negative` → hate. In `mizan/backend/data/jhsc/`.
+  - **Let-Mi** — 6,603 Levantine tweets, gender hate sub-labels. Full text. In `mizan/backend/data/let-mi/`.
+  - **MLMA Arabic** — 3,353 Arabic tweets, multi-label (hateful/offensive/normal) + target (gender/origin/religion/disability). Full text. In `mizan/backend/data/mlma/`.
+  - **AJ Comments** — 31,692 Al Jazeera Arabic news comments. Labels: -2=hate (conf≥0.75), -1=not-hate, 0=drop (off-topic). In `mizan/backend/data/aj-comments/`.
+  - **Arabic Religious (Albadi 2018)** — 5,569 tweet IDs only (no text). AraHate lexicons reserved for Phase 4. In `mizan/backend/data/arabic-religious/`.
+**Label mapping**:
+  - JHSC `negative` → hate; all others → not_hate
+  - Let-Mi `category != none` → hate (gender_hate category)
+  - MLMA `hateful*` / `abusive_hateful*` → hate; `normal*` → not_hate; target maps to category
+  - AJ `languagecomment == -2` (conf ≥ 0.75) → hate; `-1` → not_hate
+**Success Criteria**:
+  1. Running the seed script populates the database with at least 100 examples drawn from JHSC, Let-Mi, MLMA, and AJ Comments.
+  2. Each example has a ground-truth label plus a hate type (from the 9-category schema, nullable for undifferentiated examples).
+  3. Each example is tagged with dialect (Jordanian/Levantine/mixed), content type, and hate category — queryable via API.
+  4. JHSC temporal data (2014–2022, aggregated by month/year) is loaded into `jhsc_monthly` and queryable.
+  5. An admin can trigger a CSV or JSON export of all annotations.
+**Plans**: 5 plans — `mizan/.planning/phases/02-data-pipeline/PLAN.md`
+- Plan 2.1: Database Schema Migration (5 new tables)
+- Plan 2.2: Dataset Preparation Scripts (4 prep scripts → all_seed.json)
+- Plan 2.3: Content Examples Seed Script
+- Plan 2.4: JHSC Full Load Script (Snowflake ID → timestamp → monthly aggregation)
+- Plan 2.5: Export API Endpoint
 
 ---
 
@@ -51,74 +77,104 @@
 **Goal**: A moderator can open the platform, work through a training session of Arabic content, and submit labels — the full labeling loop is functional end-to-end in RTL Arabic.
 **Depends on**: Phase 1, Phase 2
 **Requirements**: TRAIN-01, TRAIN-02, TRAIN-05, TRAIN-07, UI-01, UI-02, UI-03
-**Success Criteria** (what must be TRUE):
-  1. All Arabic text renders right-to-left with Tajawal or IBM Plex Arabic font — no LTR bleed, no font fallback to Latin.
-  2. A moderator can navigate through a sequence of 10–50 examples and see each tweet/comment displayed in the correct RTL layout.
-  3. A moderator can select "hate" or "not hate" and, when selecting hate, choose exactly one of the 9 hate type categories before submitting.
+**Success Criteria**:
+  1. All Arabic text renders right-to-left with Tajawal or IBM Plex Arabic font — no LTR bleed.
+  2. A moderator can navigate through a sequence of 10–50 examples in the correct RTL layout.
+  3. A moderator can select hate/not-hate and, when hate, choose one of the 9 categories before submitting.
   4. After submitting, the moderator can mark whether they agree or disagree with the AI classification.
-  5. The platform is fully usable in Chrome, Firefox, and Safari on desktop without layout breakage.
-**Plans**: TBD
+  5. Platform is fully usable in Chrome, Firefox, and Safari on desktop.
+**Plans**: 4 plans — `.planning/phases/03-moderator-training-ui/`
+- Plan 3.1: Tailwind CSS Installation & RTL Layout Shell (Wave 1)
+- Plan 3.2: Training Session Backend — Schema + API (Wave 1)
+- Plan 3.3: Training Labeling Interface — Frontend Core (Wave 2)
+- Plan 3.4: Session Flow & Summary — Start, Complete, History (Wave 3)
 
 ---
 
 ### Phase 4: MARBERT Inference API
-**Goal**: The backend can classify any Arabic text input using MARBERT and return a result fast enough for a live demo.
+**Goal**: The backend can classify any Arabic text using MARBERT and return a result fast enough for a live demo.
 **Depends on**: Phase 1
 **Requirements**: AI-01, AI-03, AI-04
-**Success Criteria** (what must be TRUE):
-  1. Posting Arabic text to the classification endpoint returns a hate/not-hate prediction and a confidence score (0–1).
-  2. The API returns a classification response within 3 seconds for a single text input under normal load.
-  3. When the input contains code-mixed Arabic-English text, the system falls back to XLM-RoBERTa and still returns a valid classification.
-**Plans**: TBD
+**Success Criteria**:
+  1. Posting Arabic text returns a hate/not-hate prediction and confidence score (0–1).
+  2. API returns a classification response within 3 seconds for a single text input.
+  3. Code-mixed Arabic-English input falls back to XLM-RoBERTa and returns a valid classification.
+**Plans**: 2 plans — `.planning/phases/04-marbert-inference-api/`
+- Plan 4.1: ML Dependencies & Model Service (Wave 1)
+- Plan 4.2: Classify API Endpoint & Integration (Wave 2)
 
 ---
 
 ### Phase 5: AI Explanation Layer
-**Goal**: After a moderator submits a label, the platform displays an Arabic-language explanation of why the model classified the content as it did.
+**Goal**: After a moderator submits a label, the platform displays an Arabic-language explanation of the model's reasoning.
 **Depends on**: Phase 3, Phase 4
 **Requirements**: AI-02, TRAIN-03, TRAIN-04
-**Success Criteria** (what must be TRUE):
-  1. After label submission, the moderator sees the AI model's classification (hate/not-hate) and its confidence score displayed on screen.
-  2. Below the classification, an Arabic-language explanation of the model's reasoning appears — written in natural Arabic prose, not technical output.
-  3. The explanation is readable and grammatically correct — a Jordanian Arabic speaker can understand it without technical knowledge.
-**Plans**: TBD
+**Success Criteria**:
+  1. After label submission, the moderator sees the AI classification and confidence score.
+  2. An Arabic-language explanation of the reasoning appears — natural prose, not technical output.
+  3. The explanation is grammatically correct and readable by a non-technical Jordanian Arabic speaker.
+**Plans**: 2 plans — `.planning/phases/05-ai-explanation-layer/`
+- Plan 5.1: Backend — Schema Migration + Explanation Service (Wave 1)
+- Plan 5.2: Frontend — AI Explanation Display (Wave 2)
 
 ---
 
 ### Phase 6: Calibration Scoring
-**Goal**: Moderators see a live calibration score that reflects their agreement with ground-truth labels, updating after each submission.
+**Goal**: Moderators see a live calibration score reflecting their agreement with ground-truth labels, updating after each submission.
 **Depends on**: Phase 3, Phase 5
 **Requirements**: TRAIN-06
-**Success Criteria** (what must be TRUE):
-  1. After each label submission, the moderator's calibration score (% agreement with ground truth) updates immediately on screen.
-  2. The calibration score is accurate — if a moderator agrees with 7 of 10 ground-truth labels, the score shows 70%.
-**Plans**: TBD
+**Success Criteria**:
+  1. After each submission, the moderator's calibration score (% agreement with ground truth) updates immediately.
+  2. The score is accurate — 7/10 correct = 70%.
+**Plans**: 1 plan — `.planning/phases/06-calibration-scoring/`
+- Plan 6.1: Calibration Scoring — Live Display (Wave 1)
 
 ---
 
-### Phase 7: Admin Dashboard
-**Goal**: An institution admin can manage training sessions, monitor moderator performance, and download reports.
-**Depends on**: Phase 2, Phase 6
-**Requirements**: ADMIN-01, ADMIN-02, ADMIN-03, ADMIN-04
-**Success Criteria** (what must be TRUE):
-  1. The admin dashboard lists all moderators in the institution with their current calibration scores.
-  2. An admin can create a new training session by selecting a content batch and assigning it to a specific moderator.
-  3. The dashboard surfaces which content items have the highest moderator disagreement rate — sortable or highlighted.
-  4. An admin can download a calibration report (PDF or CSV) that includes all moderator scores and session history.
-**Plans**: TBD
+### Phase 7: Analytics & Research Layer
+**Goal**: The Observatory shows 8 years of Jordanian hate speech trends. The Bias Auditor shows where MARBERT fails by category. Both are accessible to researchers and policy users.
+**Depends on**: Phase 2, Phase 4
+**Requirements**: OBS-02, OBS-03, BIAS-01, BIAS-02, BIAS-03
+**Success Criteria**:
+  1. Observatory displays a timeline chart of hate speech volume (2014–2022) from JHSC, broken down by hate type.
+  2. Observatory marks at least 3 real Jordanian events on the timeline (e.g., 2015 refugee influx, 2020 elections).
+  3. Bias Auditor shows MARBERT's F1/precision/recall broken down by all 9 hate categories on JHSC.
+  4. Bias Auditor clearly highlights which categories the model performs weakest on.
+  5. A researcher can download a bias report (PDF or CSV) summarizing model performance by category.
+**Plans**: 4 plans — `.planning/phases/07-analytics-research-layer/`
+- Plan 7.1: JHSC Temporal Backfill + Observatory API (Wave 1)
+- Plan 7.2: Bias Auditor Backend — Batch Inference + Metrics + CSV (Wave 1)
+- Plan 7.3: D3.js Install + Observatory Frontend (Wave 2)
+- Plan 7.4: Bias Auditor Frontend — Charts + CSV Download (Wave 2)
 
 ---
 
 ### Phase 8: Demo Polish
-**Goal**: A complete, compelling 3-minute demo path works flawlessly — the platform is pitch-ready for the hackathon jury.
+**Goal**: A complete, compelling 5-minute demo path works across all three personas — the platform is pitch-ready for the hackathon jury.
 **Depends on**: Phase 7
-**Requirements**: (no new requirements — delivers the demo integration of all prior phases)
-**Success Criteria** (what must be TRUE):
-  1. The demo flow — open tweet, label it, see AI classification, read Arabic explanation — completes end-to-end in under 60 seconds without errors.
-  2. The platform loads the demo session in under 3 seconds on a standard laptop on Wi-Fi.
-  3. All UI text, labels, and explanations are in Arabic with no broken layout, missing translations, or English fallback visible during the demo path.
-  4. A jury member watching the 3-minute pitch can follow what the platform does without technical explanation.
+**Requirements**: (no new requirements — delivers demo integration of all prior phases)
+**Success Criteria**:
+  1. The three-persona demo flow — Observatory (Rania) → Bias Auditor (Lina) → Moderator Training (Khaled) — completes end-to-end in under 4 minutes without errors.
+  2. Platform loads the demo session in under 3 seconds on a standard laptop on Wi-Fi.
+  3. All UI text, labels, and explanations are in Arabic with no broken layout or English fallback visible during the demo.
+  4. A jury member watching the 5-minute pitch can follow the platform's purpose without technical explanation.
 **Plans**: TBD
+
+---
+
+### Phase 9: E2E Testing with Playwright
+**Goal**: Automated E2E tests cover the three-persona demo flow — login, dashboard, observatory, bias auditor, and training session — catching regressions before the hackathon pitch.
+**Depends on**: Phase 8
+**Requirements**: (no new requirements — tests validate all prior phases)
+**Success Criteria**:
+  1. `npx playwright test` runs all tests headless and passes.
+  2. Auth flow tested: login, logout, protected route redirect.
+  3. Observatory page loads trends chart without 401.
+  4. Bias Auditor page loads results and CSV downloads work.
+  5. Training flow: start session → label tweet → see feedback → summary.
+**Plans**: 2 plans -- `.planning/phases/09-e2e-testing/`
+- Plan 9.1: Playwright Infrastructure Setup (Wave 1)
+- Plan 9.2: E2E Test Suite Implementation (Wave 2)
 
 ---
 
@@ -126,14 +182,15 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
-| 2. Data Pipeline | 0/? | Not started | - |
-| 3. Moderator Training UI | 0/? | Not started | - |
-| 4. MARBERT Inference API | 0/? | Not started | - |
-| 5. AI Explanation Layer | 0/? | Not started | - |
-| 6. Calibration Scoring | 0/? | Not started | - |
-| 7. Admin Dashboard | 0/? | Not started | - |
+| 1. Foundation | 4/4 | Complete | 2026-03-02 |
+| 2. Data Pipeline | 0/5 | Planned | - |
+| 3. Moderator Training UI | 4/4 | Complete | 2026-03-02 |
+| 4. MARBERT Inference API | 2/2 | Complete | 2026-03-02 |
+| 5. AI Explanation Layer | 2/2 | Complete | 2026-03-02 |
+| 6. Calibration Scoring | 1/1 | Complete | 2026-03-02 |
+| 7. Analytics & Research Layer | 0/4 | Planned | - |
 | 8. Demo Polish | 0/? | Not started | - |
+| 9. E2E Testing with Playwright | 1/2 | In Progress|  |
 
 ---
 
@@ -149,6 +206,7 @@
 | DATA-02 | Phase 2 | Pending |
 | DATA-03 | Phase 2 | Pending |
 | DATA-04 | Phase 2 | Pending |
+| OBS-01 | Phase 2 | Pending |
 | TRAIN-01 | Phase 3 | Pending |
 | TRAIN-02 | Phase 3 | Pending |
 | TRAIN-05 | Phase 3 | Pending |
@@ -163,13 +221,15 @@
 | TRAIN-03 | Phase 5 | Pending |
 | TRAIN-04 | Phase 5 | Pending |
 | TRAIN-06 | Phase 6 | Pending |
-| ADMIN-01 | Phase 7 | Pending |
-| ADMIN-02 | Phase 7 | Pending |
-| ADMIN-03 | Phase 7 | Pending |
-| ADMIN-04 | Phase 7 | Pending |
+| OBS-02 | Phase 7 | Pending |
+| OBS-03 | Phase 7 | Pending |
+| BIAS-01 | Phase 7 | Pending |
+| BIAS-02 | Phase 7 | Pending |
+| BIAS-03 | Phase 7 | Pending |
 
-**Total mapped: 26/26 v1 requirements**
+**Total mapped: 28/28 v1 requirements**
 
 ---
 
 *Created: 2026-03-02*
+*Updated: 2026-03-02 — Expanded to three-component platform (Observatory + Bias Auditor + Mizan)*

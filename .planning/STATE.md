@@ -7,20 +7,20 @@
 ## Project Reference
 
 **Name**: Mizan (ميزان — "the scale")
-**Core value**: A moderator who completes a Mizan training session makes faster, more consistent hate speech decisions — and every session strengthens the underlying Jordanian Arabic benchmark dataset.
-**Primary deadline**: JYIF Generative AI National Social Hackathon (Jordan) — 3-minute live demo
-**The demo moment**: Tweet appears → moderator labels it → MARBERT classifies it → Arabic explanation appears
+**Core value**: Three components, three personas, one platform. Observatory (Rania) shows the historical problem. Bias Auditor (Lina) validates the AI. Moderator Training (Khaled) trains the humans who work alongside it.
+**Primary deadline**: JYIF Generative AI National Social Hackathon (Jordan) — 5-minute pitch
+**The demo moment**: Observatory trend → Bias Auditor breakdown → Moderator labels tweet → MARBERT classifies → Arabic explanation appears → calibration score updates
 
 ---
 
 ## Current Position
 
-**Current phase**: Phase 1 — Foundation
-**Current plan**: Not started
-**Status**: Not started
+**Current phase**: Phase 9 — E2E Testing with Playwright
+**Current plan**: Plan 9.2 (Test Suite Implementation)
+**Status**: Phase 9 in progress — Plan 9.1 complete, Plan 9.2 pending
 
 ```
-Progress: [________] 0/8 phases complete
+Progress: [########-] 8/9 phases (Phase 9 in progress — Plan 9.1/2 done)
 ```
 
 ---
@@ -29,14 +29,15 @@ Progress: [________] 0/8 phases complete
 
 | Phase | Status | Completed |
 |-------|--------|-----------|
-| 1. Foundation | Not started | - |
-| 2. Data Pipeline | Not started | - |
-| 3. Moderator Training UI | Not started | - |
-| 4. MARBERT Inference API | Not started | - |
-| 5. AI Explanation Layer | Not started | - |
-| 6. Calibration Scoring | Not started | - |
-| 7. Admin Dashboard | Not started | - |
-| 8. Demo Polish | Not started | - |
+| 1. Foundation | Complete | 2026-03-02 |
+| 2. Data Pipeline | Complete | 2026-03-02 |
+| 3. Moderator Training UI | Complete | 2026-03-02 |
+| 4. MARBERT Inference API | Complete | 2026-03-02 |
+| 5. AI Explanation Layer | Complete | 2026-03-02 |
+| 6. Calibration Scoring | Complete | 2026-03-02 |
+| 7. Analytics & Research Layer (Observatory + Bias Auditor) | Complete | 2026-03-02 |
+| 8. Demo Polish | Complete | 2026-03-02 |
+| 9. E2E Testing with Playwright | In progress | - |
 
 ---
 
@@ -69,21 +70,205 @@ Progress: [________] 0/8 phases complete
 ## Accumulated Context
 
 ### Decisions Log
-*(Populated as plans complete)*
+
+| Decision | Context |
+|----------|---------|
+| DB port 5433 on host | Local PostgreSQL already uses 5432; Docker internal still uses 5432 |
+| bcrypt==4.2.1 directly (no passlib) | passlib 1.7.4 incompatible with bcrypt 5.x; use `import bcrypt` directly |
+| EmailStr replaced by regex validator | email-validator 2.3.0 rejects `.local` TLD; use custom `@field_validator` |
+| JWT `iat` as Unix int (not ISO string) | python-jose requires RFC 7519 integer timestamp |
+| Demo accounts: admin@mizan.local (super_admin), demo-admin@mizan.local (admin) | super_admin has institution_id=None; use demo-admin to demonstrate AUTH-03 |
+| jhsc_tweets.id is BIGINT | Twitter IDs exceed INTEGER max (2.1B); tweet_id values up to ~1.2 quintillion |
+| Alembic enums via raw SQL | SQLAlchemy `sa.Enum` double-creates in `create_table`; use `op.execute()` + `postgresql.ENUM(create_type=False)` |
+| Bulk insert via `__table__` not ORM | `pg_insert(Model)` converts enum values through Python names; use `Table` reflection for raw enum values |
+| Tailwind CSS v3.4 (not v4) | v4 is a full rewrite with CSS-based config; v3.4 is stable, well-documented, and has built-in RTL via logical properties |
+| useReducer-style state in TrainingSession page | 6+ interdependent state fields (items, currentIndex, isSubmitting, isChangingAnswer); single-page state management |
+| Anti-cheat ground truth hiding | Backend returns ground_truth_label=null until moderator submits their label; prevents looking ahead |
+| Binary correctness mapping | offensive→hate, spam→not_hate for is_correct computation; rewards catching harmful speech |
+| MARBERT checkpoint: amitca71/marabert2-levantine-toxic-model-v4 | Levantine Arabic, F1=90.82%, binary normal/toxic, Apache 2.0 |
+| XLM-R fallback: Andrazp/multilingual-hate-speech-robacofi | XLM-T base, Arabic F1=87.04%, binary offensive/not-offensive, MIT |
+| Code-mixed detection via character ratio | 30% Latin chars triggers XLM-R; pure unicodedata, no extra deps |
+| Pydantic protected_namespaces for model_used | `model_config = {"protected_namespaces": ()}` on ClassifyResponse |
+| MPS with PYTORCH_ENABLE_MPS_FALLBACK=1 | Required for HuggingFace ops not yet on Metal; set in lifespan |
+| JHSC temporal backfill via Snowflake ID SQL | Alembic migration with PostgreSQL `>>` bitwise shift; single bulk UPDATE |
+| D3.js v7 + React hybrid | `useRef` + `useEffect` for D3 rendering in React; SVG viewBox for responsive charts |
+| Observatory: single trends endpoint | `GET /api/observatory/trends` returns monthly aggregations + 8 hardcoded events |
+| Bias Auditor: precompute + cache | `POST /api/audit/run` triggers batch; results cached in `bias_audit_runs` JSONB |
+| CSV UTF-8 BOM for Arabic Excel | `\ufeff` prefix ensures correct Arabic display in Excel |
+| Playwright workers: 1 | Sequential test execution prevents DB race conditions with shared test data |
+| Playwright globalSetup seeds DB + writes auth-state.json | Idempotent seeds (non-fatal) + JWT login → storageState pre-injects mizan_token |
+| tsconfig.e2e.json separate from tsconfig.json | Playwright uses Node moduleResolution; Vite's bundler resolution + allowImportingTsExtensions are incompatible |
+| No webServer block in playwright.config.ts | Assumes Docker Compose stack already running; BASE_URL/API_URL injectable via env vars |
 
 ### Todos Carried Forward
-*(Populated during plan execution)*
+*(None — Phase 3 clean)*
 
 ### Blockers
-*(None yet)*
+*(None)*
 
 ---
 
 ## Session Continuity
 
 **Last updated**: 2026-03-02
-**Last action**: Roadmap created (8 phases, 26 requirements mapped)
-**Next action**: Run `/gsd:plan-phase 1` to plan Foundation phase
+**Last action**: Completed Plan 9.1 — Playwright Infrastructure Setup (5 tasks, 5 files, 5 commits).
+**Next action**: Execute Plan 9.2 — Test Suite Implementation (Playwright specs for login, Observatory, Bias Auditor, Training flow).
+
+**Phase 8 results:**
+- CRITICAL BUG FIXED: observatory-api.ts + audit-api.ts now use shared `api` instance (reads `mizan_token`, respects `VITE_API_URL`)
+- BiasAuditorPage CSV download uses `downloadAuditCsv()` via shared api (correct auth + base URL)
+- Login page: migrated from inline styles to Tailwind — centered card with shadow, branding tagline
+- Dashboard: persona-themed cards with color accents (red=Observatory, blue=Audit, green=Training) + persona names
+- Layout: max-width widened from 900px to 1024px (max-w-5xl) for D3 chart room
+- ProtectedRoute: loading state migrated to Tailwind
+- Frontend build: 676 modules, 315KB JS + 16KB CSS, zero TS errors
+- 0 new files, 7 modified files
+
+**Files modified in Phase 8:**
+- `mizan/frontend/src/lib/observatory-api.ts` — Use shared api instance (fix token key)
+- `mizan/frontend/src/lib/audit-api.ts` — Use shared api instance + downloadAuditCsv()
+- `mizan/frontend/src/pages/BiasAuditorPage.tsx` — Use downloadAuditCsv() instead of raw fetch
+- `mizan/frontend/src/pages/Login.tsx` — Tailwind classes replace inline styles
+- `mizan/frontend/src/pages/Dashboard.tsx` — Persona-themed cards with color accents
+- `mizan/frontend/src/components/Layout.tsx` — max-w-5xl (1024px) for chart room
+- `mizan/frontend/src/components/ProtectedRoute.tsx` — Tailwind loading state
+
+**Phase 7 results:**
+- JHSC temporal backfill — Snowflake ID → year/month via PostgreSQL bitwise shift (403,688 tweets)
+- Observatory API: `GET /api/observatory/trends` — monthly hate counts + 8 Jordanian historical events
+- Bias Auditor API: `POST /api/audit/run` (batch MARBERT on 560 examples), `GET /results`, `GET /results/csv`
+- D3.js v7 area chart for Observatory timeline (2014–2022) with event markers and Arabic tooltips
+- D3.js horizontal grouped bar chart for Bias Auditor (F1/precision/recall per category)
+- ObservatoryPage: summary cards (total tweets, hate count, %), timeline chart, events legend
+- BiasAuditorPage: run/re-run audit, overall metrics, weakness alert (F1<50%), CSV download
+- Placeholder component removed from App.tsx — all 3 sections now have real pages
+- 2 new migrations: `e7f8a9b0c1d2` (backfill), `f8a9b0c1d2e3` (bias_audit_runs)
+- Frontend build: 676 modules, 315KB JS + 15KB CSS, zero TS errors
+
+**New files created in Phase 7:**
+- `mizan/backend/alembic/versions/e7f8a9b0c1d2_phase7_jhsc_temporal_backfill.py` — Snowflake backfill
+- `mizan/backend/alembic/versions/f8a9b0c1d2e3_phase7_bias_audit_runs.py` — Audit cache table
+- `mizan/backend/app/models/bias_audit.py` — BiasAuditRun model (JSONB)
+- `mizan/backend/app/routers/observatory.py` — GET /api/observatory/trends
+- `mizan/backend/app/routers/audit.py` — POST /run, GET /results, GET /results/csv
+- `mizan/frontend/src/lib/observatory-api.ts` — getTrends() API client
+- `mizan/frontend/src/lib/audit-api.ts` — runAudit(), getAuditResults() API client
+- `mizan/frontend/src/components/TimelineChart.tsx` — D3.js area chart with events
+- `mizan/frontend/src/components/BiasChart.tsx` — D3.js horizontal grouped bar chart
+- `mizan/frontend/src/pages/ObservatoryPage.tsx` — Observatory page with summary + chart + legend
+- `mizan/frontend/src/pages/BiasAuditorPage.tsx` — Bias Auditor page with metrics + chart + download
+
+**Files modified in Phase 7:**
+- `mizan/backend/app/models/jhsc_tweet.py` — tweet_year/month nullable=False
+- `mizan/backend/app/main.py` — Register observatory + audit routers
+- `mizan/frontend/src/App.tsx` — Replace Placeholders with real pages, remove Placeholder function
+- `mizan/frontend/package.json` — Added d3 + @types/d3
+
+**Phase 6 results:**
+- CalibrationScore component — live % agreement with color-coded Arabic display
+- Frontend-computed from items state — zero extra API calls
+- Color thresholds: ≥80% green (ممتاز), ≥60% amber (جيد), <60% red (يحتاج تحسين)
+- Arabic digits percentage: "نسبة المعايرة: ٧٠٪" with smooth CSS transition
+- Placeholder before first label: "ستظهر نسبة المعايرة بعد أول تصنيف"
+- Backend _serialize_session() now computes correct_count live from items (not DB column)
+- Extracted toArabicDigits to shared format.ts utility (was duplicated in ProgressBar + SessionSummary)
+- Frontend build: 104 modules, 228KB JS + 14KB CSS, zero TS errors
+
+**New files created in Phase 6:**
+- `mizan/frontend/src/components/CalibrationScore.tsx` — Live calibration score display
+- `mizan/frontend/src/lib/format.ts` — Shared toArabicDigits utility
+
+**Files modified in Phase 6:**
+- `mizan/backend/app/routers/training.py` — _serialize_session computes correct_count from items
+- `mizan/frontend/src/components/ProgressBar.tsx` — Import toArabicDigits from format.ts
+- `mizan/frontend/src/pages/SessionSummary.tsx` — Import toArabicDigits from format.ts
+- `mizan/frontend/src/pages/TrainingSession.tsx` — CalibrationScore between ProgressBar and TweetCard
+
+**Phase 5 results:**
+- Template-based Arabic explanations with attention-weight trigger words
+- `classify_with_explanation()` on ModelManager — attention extraction from last layer
+- `ExplanationService` — Arabic prose templates keyed to label, confidence, category
+- 4 new columns on `session_items`: ai_label, ai_confidence, ai_explanation_text, ai_trigger_words
+- TweetCard enhanced with highlight support (amber for hate, green for not_hate)
+- AIExplanation component — blue card with "تفسير النموذج" header + Arabic prose
+- FeedbackReveal integrates AI explanation with cold start fallback ("النموذج غير جاهز بعد")
+- Arabic diacritics stripping for trigger word matching
+- Frontend build: 102 modules, 228KB JS + 14KB CSS, zero TS errors
+
+**New files created in Phase 5:**
+- `mizan/backend/alembic/versions/d4e5f6a7b8c9_phase5_ai_explanation_columns.py` — Migration
+- `mizan/backend/app/services/explanation.py` — Arabic explanation generator
+- `mizan/frontend/src/components/AIExplanation.tsx` — Blue explanation card
+
+**Files modified in Phase 5:**
+- `mizan/backend/app/models/training.py` — 4 AI columns on SessionItem
+- `mizan/backend/app/services/ml_models.py` — classify_with_explanation() method
+- `mizan/backend/app/routers/training.py` — AI classification in submit_label
+- `mizan/frontend/src/lib/types.ts` — TriggerWord interface, AI fields on SessionItem
+- `mizan/frontend/src/components/TweetCard.tsx` — Highlight support
+- `mizan/frontend/src/components/FeedbackReveal.tsx` — AI explanation + fallback
+- `mizan/frontend/src/pages/TrainingSession.tsx` — Wire AI data to components
+
+**Phase 4 results:**
+- MARBERT checkpoint: `amitca71/marabert2-levantine-toxic-model-v4` (Levantine, F1=90.82%)
+- XLM-RoBERTa fallback: `Andrazp/multilingual-hate-speech-robacofi` (Arabic F1=87.04%)
+- `POST /api/classify` — hate/not_hate + confidence + probabilities + model_used + timing
+- `GET /api/classify/health` — model loading status
+- Code-mixed detection: 30% Latin character threshold → XLM-RoBERTa
+- Device: MPS (Apple Silicon) with CPU fallback
+- Lifespan model loading with warmup inference
+- Inference: ~243-294ms on MPS (20x under 3s target)
+- Pydantic protected_namespaces fix for `model_used` field
+
+**New files created in Phase 4:**
+- `mizan/backend/app/services/__init__.py` — Services package
+- `mizan/backend/app/services/ml_models.py` — ModelManager + detect_code_mixed
+- `mizan/backend/app/schemas/classify.py` — ClassifyRequest/Response/HealthResponse
+- `mizan/backend/app/routers/classify.py` — POST /api/classify + GET /api/classify/health
+
+**Files modified in Phase 4:**
+- `mizan/backend/app/main.py` — Lifespan model loading + classify router
+- `mizan/backend/app/core/config.py` — ML settings (HF_HOME, model IDs, threshold)
+- `mizan/backend/requirements.txt` — torch, transformers, accelerate
+- `mizan/docker-compose.yml` — model_cache volume + HF_HOME env
+
+**Manual step needed:** Add ML env vars to `mizan/.env` (hook blocked write):
+```
+HF_HOME=./model_cache
+MARBERT_MODEL_ID=amitca71/marabert2-levantine-toxic-model-v4
+XLM_MODEL_ID=Andrazp/multilingual-hate-speech-robacofi
+CODE_MIXED_THRESHOLD=0.30
+```
+
+**Phase 3 results:**
+- Tailwind CSS v3.4 installed with RTL logical properties (ms-, me-, ps-, pe-)
+- Shared Layout component (header + nav + main) replaces inline-styled Dashboard header
+- Training API: 4 endpoints (POST/GET sessions, GET session detail, PUT label)
+- Anti-cheat: ground truth hidden until moderator submits label
+- Two-step labeling: hate/not_hate → 9 categories (Arabic labels)
+- Session flow: start → label 20 items → feedback → summary with accuracy
+- Back navigation + change answer support
+- All Arabic text RTL with Tajawal font, no LTR bleed
+- Frontend build: 101 modules, 226KB JS + 13KB CSS, zero TS errors
+
+**New files created in Phase 3:**
+- `mizan/frontend/tailwind.config.js` — Tailwind config with mizan-navy, mizan-surface, font-tajawal
+- `mizan/frontend/postcss.config.js` — PostCSS + Autoprefixer
+- `mizan/frontend/src/index.css` — Tailwind directives + RTL base
+- `mizan/frontend/src/components/Layout.tsx` — Shared layout shell
+- `mizan/frontend/src/components/TweetCard.tsx` — Arabic tweet display card
+- `mizan/frontend/src/components/ProgressBar.tsx` — Session progress with Arabic digits
+- `mizan/frontend/src/components/LabelSelector.tsx` — Two-step hate/category selector
+- `mizan/frontend/src/components/FeedbackReveal.tsx` — Ground truth reveal + navigation
+- `mizan/frontend/src/components/SessionHistoryList.tsx` — Past sessions list
+- `mizan/frontend/src/lib/training-api.ts` — API client for training endpoints
+- `mizan/frontend/src/pages/TrainingPage.tsx` — Training landing page
+- `mizan/frontend/src/pages/TrainingSession.tsx` — Main labeling interface
+- `mizan/frontend/src/pages/SessionSummary.tsx` — Session completion summary
+- `mizan/backend/app/models/training.py` — TrainingSession + SessionItem models
+- `mizan/backend/app/schemas/training.py` — Pydantic request/response schemas
+- `mizan/backend/app/routers/training.py` — 4 training API endpoints
+- `mizan/backend/alembic/versions/c3d4e5f6a7b8_phase3_training_tables.py`
 
 ---
 
@@ -92,10 +277,10 @@ Progress: [________] 0/8 phases complete
 | Metric | Target | Current |
 |--------|--------|---------|
 | Requirements covered | 26/26 | 26/26 |
-| Phases defined | 8 | 8 |
-| Plans written | TBD | 0 |
-| Plans complete | TBD | 0 |
-| Demo path working | Yes (Phase 8) | No |
+| Phases defined | 9 | 9 |
+| Plans written | 17 | 17 |
+| Plans complete | 17 | 17 |
+| Demo path working | Yes (Phase 8) | Yes |
 
 ---
 
