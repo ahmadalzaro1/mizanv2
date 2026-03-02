@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T22:42:24.471Z"
+last_updated: "2026-03-02T22:47:27.960Z"
 progress:
   total_phases: 10
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 26
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # STATE — Mizan
@@ -29,11 +29,11 @@ progress:
 ## Current Position
 
 **Current phase**: Phase 09.1 — Bias Auditor Rework
-**Current plan**: Plan 09.1-01 COMPLETE — Backend enriched metrics + SSE endpoint
-**Status**: Phase 09.1 in progress — Plan 1/3 complete
+**Current plan**: Plan 09.1-03 COMPLETE — BiasAuditorPage tabbed layout + SSE + E2E tests
+**Status**: Phase 09.1 COMPLETE — All 3/3 plans done
 
 ```
-Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plans done)
+Progress: [##########] 10/10 phases complete (Phase 09.1 complete — 3/3 plans done)
 ```
 
 ---
@@ -51,6 +51,7 @@ Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plan
 | 7. Analytics & Research Layer (Observatory + Bias Auditor) | Complete | 2026-03-02 |
 | 8. Demo Polish | Complete | 2026-03-02 |
 | 9. E2E Testing with Playwright | Complete | 2026-03-02 |
+| 9.1. Bias Auditor Rework | Complete | 2026-03-02 |
 
 ---
 
@@ -122,6 +123,8 @@ Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plan
 ### Roadmap Evolution
 - Phase 09.1 inserted after Phase 9: Bias Auditor Rework (INSERTED) — rethink the feature for more value
 - Phase 09.1 Plan 01: Backend enriched audit loop + SSE streaming endpoint (COMPLETE 2026-03-03)
+- Phase 09.1 Plan 02: audit-api.ts enriched types + SSE client + 3 new components (COMPLETE 2026-03-03)
+- Phase 09.1 Plan 03: BiasAuditorPage 4-tab layout + SSE progress + Arabic insight + E2E tests (COMPLETE 2026-03-03)
 
 ### Phase 09.1 Decisions
 | Decision | Context |
@@ -131,6 +134,10 @@ Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plan
 | Load examples eagerly before SSE generator | Prevents SQLAlchemy session lifetime issues across async yields |
 | MAX_FP_SAMPLES=10 applied during loop | Cap during iteration, not post-hoc; saves memory on large example sets |
 | Per-source stats track full tp/fp/fn/tn | Needed for false_positive_rate = fp/(fp+tn) computation |
+| runAudit() fallback in handleRunAudit catch | SSE stream endpoint may be unavailable; fallback ensures audit always succeeds |
+| generateInsight() uses template prose, not LLM | Zero latency, deterministic, no network cost; 2-3 Arabic sentences from AuditResults |
+| Tab buttons as <button> not anchor | getByRole('button') selectors work cleanly in Playwright without URL navigation |
+| Metric cards pinned above tab nav | Per CONTEXT.md locked decision: overall metrics always visible regardless of active tab |
 
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
@@ -143,8 +150,8 @@ Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plan
 ## Session Continuity
 
 **Last updated**: 2026-03-02
-**Last action**: Completed 09.1-02 — audit-api.ts enriched types + SSE streaming client + 3 new Bias Auditor components (ConfidenceHistogram, SourceBreakdownTable, FalsePositiveList)
-**Next action**: Execute 09.1-03 — wire new components into BiasAuditorPage.tsx (tabbed layout + SSE progress bar)
+**Last action**: Completed 09.1-03 — BiasAuditorPage reworked with 4-tab layout, SSE progress bar, Arabic insight summary; E2E tests updated
+**Next action**: Phase 09.1 COMPLETE — all 3 plans done; platform is pitch-ready
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
@@ -326,4 +333,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 09-e2e-testing P02 | 3 | 5 tasks | 5 files |
 | Phase 09.1-bias-auditor-rework P02 | 2 | 3 tasks | 4 files |
 | Phase 09.1-bias-auditor-rework P01 | 6 | 2 tasks | 1 files |
+| Phase 09.1-bias-auditor-rework P03 | 138 | 2 tasks | 2 files |
 
