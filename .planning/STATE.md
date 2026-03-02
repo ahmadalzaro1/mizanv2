@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T21:03:15.509Z"
+last_updated: "2026-03-02T22:37:58.509Z"
 progress:
-  total_phases: 9
+  total_phases: 10
   completed_phases: 1
-  total_plans: 23
-  completed_plans: 2
+  total_plans: 26
+  completed_plans: 3
 ---
 
 # STATE — Mizan
@@ -116,6 +116,8 @@ Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
 | Bias Auditor tests skip POST /api/audit/run | Avoids the 140s MARBERT batch — tests accept either cached results or empty state |
 | AI explanation assertions use OR pattern | hasAIExplanation OR hasFallback — tolerates cold ML model startup in CI/pre-warm scenarios |
 | Training test labels 3/20 items only | Sufficient to exercise not_hate, hate+category two-step, calibration score transition, and back navigation without filling DB history |
+| fetch() + ReadableStream for SSE | EventSource cannot send Authorization Bearer header — fetch() ReadableStream is the correct approach for authenticated SSE |
+| Optional fields on AuditResults | New per_source, confidence_dist, false_positives fields are optional (?) for backward compatibility with Phase 7 cached results |
 
 ### Roadmap Evolution
 - Phase 09.1 inserted after Phase 9: Bias Auditor Rework (INSERTED) — rethink the feature for more value
@@ -130,9 +132,9 @@ Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
 
 ## Session Continuity
 
-**Last updated**: 2026-03-03
-**Last action**: Inserted Phase 09.1 — Bias Auditor Rework. Brainstorming what to do with the feature.
-**Next action**: Research and discuss Phase 09.1 direction.
+**Last updated**: 2026-03-02
+**Last action**: Completed 09.1-02 — audit-api.ts enriched types + SSE streaming client + 3 new Bias Auditor components (ConfidenceHistogram, SourceBreakdownTable, FalsePositiveList)
+**Next action**: Execute 09.1-03 — wire new components into BiasAuditorPage.tsx (tabbed layout + SSE progress bar)
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
@@ -312,4 +314,5 @@ CODE_MIXED_THRESHOLD=0.30
 
 *Initialized: 2026-03-02*
 | Phase 09-e2e-testing P02 | 3 | 5 tasks | 5 files |
+| Phase 09.1-bias-auditor-rework P02 | 2 | 3 tasks | 4 files |
 

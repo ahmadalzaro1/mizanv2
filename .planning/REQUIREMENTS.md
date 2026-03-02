@@ -14,7 +14,7 @@
 
 ### Dataset & Content (DATA)
 
-- [ ] **DATA-01**: Platform ships with 100+ pre-seeded Jordanian Arabic examples sourced from JHSC and OSACT5
+- [ ] **DATA-01**: Platform ships with 100+ pre-seeded Arabic examples sourced from JHSC (Jordanian dialect), OSACT5 (fine-grained schema), L-HSAB (Levantine), and Let-Mi (Levantine gender hate)
 - [ ] **DATA-02**: Each example has a ground-truth label from the annotation schema
 - [ ] **DATA-03**: Examples are tagged with dialect (Jordanian/Levantine), content type, and hate speech category
 - [ ] **DATA-04**: Admin can export all moderator annotations as JSON/CSV for dataset publication
@@ -32,6 +32,18 @@
 - [ ] **ADMIN-02**: Admin can create a training session (select content batch, assign to moderator)
 - [ ] **ADMIN-03**: Admin can see which content items have the most moderator disagreement
 - [ ] **ADMIN-04**: Admin can download a calibration report (PDF or CSV) for their team
+
+### Observatory — Trend Analysis (OBS)
+
+- [ ] **OBS-01**: JHSC temporal data (2014–2022, aggregated by month/year and category) is loaded into the database and queryable via API
+- [ ] **OBS-02**: Observatory displays a timeline chart of Jordanian hate speech volume broken down by hate type category
+- [ ] **OBS-03**: Observatory marks real Jordanian historical events on the timeline (refugee influx 2015–2016, elections 2020, etc.)
+
+### Bias Auditor (BIAS)
+
+- [ ] **BIAS-01**: System runs MARBERT inference on a categorized JHSC sample and records performance metrics per hate category
+- [x] **BIAS-02**: Bias Auditor displays F1/precision/recall breakdown by all 9 hate categories, highlighting weakest categories
+- [x] **BIAS-03**: Researcher can download a bias report (PDF or CSV) summarizing model performance by category and target group
 
 ### Authentication & Institutions (AUTH)
 

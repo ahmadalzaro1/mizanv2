@@ -233,3 +233,13 @@
 
 *Created: 2026-03-02*
 *Updated: 2026-03-02 — Expanded to three-component platform (Observatory + Bias Auditor + Mizan)*
+
+### Phase 09.1: Bias Auditor Rework (INSERTED)
+
+**Goal:** [Urgent work - to be planned]
+**Requirements**: TBD
+**Depends on:** Phase 9
+**Plans:** 1/3 plans executed
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 09.1 to break down)
