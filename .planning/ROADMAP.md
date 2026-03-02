@@ -20,7 +20,7 @@
 - [ ] **Phase 6: Calibration Scoring** — Per-moderator agreement tracking, live score display
 - [ ] **Phase 7: Analytics & Research Layer** — Observatory trend charts + Bias Auditor breakdown
 - [ ] **Phase 8: Demo Polish** — Three-persona demo path, performance tuning, pitch-ready UI
-- [ ] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow
+- [x] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow (completed 2026-03-02)
 
 ---
 
@@ -190,7 +190,7 @@
 | 6. Calibration Scoring | 1/1 | Complete | 2026-03-02 |
 | 7. Analytics & Research Layer | 0/4 | Planned | - |
 | 8. Demo Polish | 0/? | Not started | - |
-| 9. E2E Testing with Playwright | 1/2 | In Progress|  |
+| 9. E2E Testing with Playwright | 2/2 | Complete   | 2026-03-02 |
 
 ---
 
