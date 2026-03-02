@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T22:37:58.509Z"
+last_updated: "2026-03-02T22:42:24.471Z"
 progress:
   total_phases: 10
   completed_phases: 1
   total_plans: 26
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # STATE — Mizan
@@ -28,12 +28,12 @@ progress:
 
 ## Current Position
 
-**Current phase**: Phase 9 — E2E Testing with Playwright
-**Current plan**: Plan 9.2 COMPLETE — All plans executed
-**Status**: ALL PHASES AND PLANS COMPLETE — Platform pitch-ready
+**Current phase**: Phase 09.1 — Bias Auditor Rework
+**Current plan**: Plan 09.1-01 COMPLETE — Backend enriched metrics + SSE endpoint
+**Status**: Phase 09.1 in progress — Plan 1/3 complete
 
 ```
-Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
+Progress: [#########-] 9/10 phases complete (Phase 09.1 in progress — 1/3 plans done)
 ```
 
 ---
@@ -121,6 +121,16 @@ Progress: [#########] 9/9 phases complete (17 plans + Phase 9 E2E complete)
 
 ### Roadmap Evolution
 - Phase 09.1 inserted after Phase 9: Bias Auditor Rework (INSERTED) — rethink the feature for more value
+- Phase 09.1 Plan 01: Backend enriched audit loop + SSE streaming endpoint (COMPLETE 2026-03-03)
+
+### Phase 09.1 Decisions
+| Decision | Context |
+|----------|---------|
+| Keep POST /api/audit/run unchanged (backward-compatible) | SSE streaming at /run/stream is additive; old endpoint still works |
+| _build_results_from_stats() shared helper | SSE generator has own loop (needs per-iteration yields); share only post-loop construction |
+| Load examples eagerly before SSE generator | Prevents SQLAlchemy session lifetime issues across async yields |
+| MAX_FP_SAMPLES=10 applied during loop | Cap during iteration, not post-hoc; saves memory on large example sets |
+| Per-source stats track full tp/fp/fn/tn | Needed for false_positive_rate = fp/(fp+tn) computation |
 
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
@@ -315,4 +325,5 @@ CODE_MIXED_THRESHOLD=0.30
 *Initialized: 2026-03-02*
 | Phase 09-e2e-testing P02 | 3 | 5 tasks | 5 files |
 | Phase 09.1-bias-auditor-rework P02 | 2 | 3 tasks | 4 files |
+| Phase 09.1-bias-auditor-rework P01 | 6 | 2 tasks | 1 files |
 

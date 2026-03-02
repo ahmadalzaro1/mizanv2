@@ -41,7 +41,7 @@
 
 ### Bias Auditor (BIAS)
 
-- [ ] **BIAS-01**: System runs MARBERT inference on a categorized JHSC sample and records performance metrics per hate category
+- [x] **BIAS-01**: System runs MARBERT inference on a categorized JHSC sample and records performance metrics per hate category
 - [x] **BIAS-02**: Bias Auditor displays F1/precision/recall breakdown by all 9 hate categories, highlighting weakest categories
 - [x] **BIAS-03**: Researcher can download a bias report (PDF or CSV) summarizing model performance by category and target group
 
