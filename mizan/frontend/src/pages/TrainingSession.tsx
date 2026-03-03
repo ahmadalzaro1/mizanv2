@@ -195,6 +195,19 @@ export default function TrainingSessionPage() {
 
   return (
     <div>
+      {session.strategy && session.strategy !== 'sequential' && (
+        <div className="mb-3 flex justify-start">
+          <span
+            className={`rounded-full px-3 py-1 font-tajawal text-xs font-semibold ${
+              session.strategy === 'uncertainty'
+                ? 'bg-amber-100 text-amber-700'
+                : 'bg-red-100 text-red-700'
+            }`}
+          >
+            {session.strategy === 'uncertainty' ? 'تدريب التحدي' : 'أمثلة مثيرة للجدل'}
+          </span>
+        </div>
+      )}
       <ProgressBar
         current={currentIndex + 1}
         total={items.length}
