@@ -23,7 +23,7 @@
 - [x] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow (completed 2026-03-02)
 - [x] **Phase 10: LLM-Powered Explanations** — Replace template-based Arabic explanations with contextual LLM explanations via local Qwen 3.5 / Ollama *(complete 2026-03-03)*
 - [x] **Phase 11: Onboarding Tour** — Help-button-triggered Driver.js tour walking users through the 3 platform tools (completed 2026-03-03)
-- [ ] **Phase 12: Active Learning Loop** — Uncertainty and disagreement sampling strategies for more educational training sessions
+- [x] **Phase 12: Active Learning Loop** — Uncertainty and disagreement sampling strategies for more educational training sessions (completed 2026-03-03)
 
 ---
 
@@ -233,7 +233,7 @@
 **Goal:** [Urgent work - to be planned]
 **Requirements**: TBD
 **Depends on:** Phase 9
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [x] TBD (run /gsd:plan-phase 09.1 to break down) (completed 2026-03-02)
@@ -256,7 +256,7 @@ Plans:
 | 9.1 Bias Auditor Rework | 3/3 | Complete | 2026-03-02 |
 | 10. LLM-Powered Explanations | 1/3 | Complete    | 2026-03-03 |
 | 11. Onboarding Tour | 2/2 | Complete    | 2026-03-03 |
-| 12. Active Learning Loop | 2/3 | In Progress|  |
+| 12. Active Learning Loop | 3/3 | Complete   | 2026-03-03 |
 
 ---
 
