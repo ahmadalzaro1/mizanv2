@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-03T09:03:02.766Z"
+last_updated: "2026-03-03T09:05:01.824Z"
 progress:
   total_phases: 13
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 31
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # STATE — Mizan
@@ -29,11 +29,11 @@ progress:
 ## Current Position
 
 **Current phase**: Phase 11 — Onboarding Tour
-**Current plan**: Plan 11-01 COMPLETE — Tour infrastructure (driver.js, TourProvider, CSS, App wiring)
-**Status**: Phase 11 IN PROGRESS — 1/2 plans done
+**Current plan**: Plan 11-02 COMPLETE — Help button + tour IDs + E2E tests
+**Status**: Phase 11 COMPLETE — 2/2 plans done
 
 ```
-Progress: [####################] Phase 11 Plan 01 complete — driver.js TourProvider context wired
+Progress: [####################] Phase 11 Plan 02 complete — Onboarding tour fully wired and tested
 ```
 
 ---
@@ -53,7 +53,7 @@ Progress: [####################] Phase 11 Plan 01 complete — driver.js TourPro
 | 9. E2E Testing with Playwright | Complete | 2026-03-02 |
 | 9.1. Bias Auditor Rework | Complete | 2026-03-02 |
 | 10. LLM Explanations | Complete | 2026-03-03 |
-| 11. Onboarding Tour | In Progress | — |
+| 11. Onboarding Tour | Complete | 2026-03-03 |
 
 ---
 
@@ -181,6 +181,13 @@ Progress: [####################] Phase 11 Plan 01 complete — driver.js TourPro
 | driver.css imported after index.css in main.tsx | Prevents Tailwind preflight from overriding driver.js button styles |
 | #tour-* element IDs used in step selectors | Driver.js gracefully skips missing elements; IDs added to DOM in Plan 02 |
 
+### Phase 11 Plan 02 Decisions
+| Decision | Context |
+|----------|---------|
+| id attributes (not data-testid) on tour targets | Driver.js CSS selectors require standard IDs for stable step targeting |
+| animate-pulse driven by tourSeen React state | Reactive removal after tour completes without page reload |
+| 500ms auto-trigger with clearTimeout cleanup | Prevents startTour firing if Dashboard unmounts before delay elapses |
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -192,8 +199,8 @@ Progress: [####################] Phase 11 Plan 01 complete — driver.js TourPro
 ## Session Continuity
 
 **Last updated**: 2026-03-03
-**Last action**: Completed 11-01 — driver.js installed, TourProvider/useTour/isTourSeen created with 6-step Arabic tour, driver.css imported, popover CSS overrides added, TourProvider wrapping App.tsx Routes
-**Next action**: Phase 11 Plan 02 — add tour trigger points (Layout help button + Dashboard auto-trigger)
+**Last action**: Completed 11-02 — help button (?) wired in Layout header with animate-pulse, tour IDs added to Layout logo/nav + Dashboard cards, 500ms auto-trigger in Dashboard, 10-test Playwright suite for UI-04
+**Next action**: Phase 11 COMPLETE — all 2 plans done
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
@@ -378,4 +385,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 09.1-bias-auditor-rework P03 | 138 | 2 tasks | 2 files |
 | Phase 10-llm-explanations P01 | 2 | 2 tasks | 6 files |
 | Phase 11-onboarding-tour P01 | 1 | 2 tasks | 5 files |
+| Phase 11-onboarding-tour P02 | 197 | 2 tasks | 3 files |
 
