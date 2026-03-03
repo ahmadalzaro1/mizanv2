@@ -255,7 +255,7 @@ Plans:
 | 9. E2E Testing with Playwright | 2/2 | Complete   | 2026-03-02 |
 | 9.1 Bias Auditor Rework | 3/3 | Complete | 2026-03-02 |
 | 10. LLM-Powered Explanations | 1/3 | Complete    | 2026-03-03 |
-| 11. Onboarding Tour | 2/2 | Complete   | 2026-03-03 |
+| 11. Onboarding Tour | 2/2 | Complete    | 2026-03-03 |
 | 12. Active Learning Loop | 0/? | Not started | - |
 
 ---
