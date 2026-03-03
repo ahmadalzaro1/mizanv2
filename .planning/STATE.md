@@ -29,11 +29,11 @@ progress:
 ## Current Position
 
 **Current phase**: Phase 10 — LLM Explanations
-**Current plan**: Plan 10-02 COMPLETE — LLM explanation service + SSE endpoints
-**Status**: Phase 10 IN PROGRESS — 2/3 plans done
+**Current plan**: Plan 10-03 COMPLETE — Frontend SSE streaming explanation UI
+**Status**: Phase 10 COMPLETE — 3/3 plans done
 
 ```
-Progress: [####################] Phase 10 Plan 02 complete — LLM service + SSE endpoints wired
+Progress: [####################] Phase 10 Plan 03 complete — Frontend streaming UI wired
 ```
 
 ---
@@ -52,7 +52,7 @@ Progress: [####################] Phase 10 Plan 02 complete — LLM service + SSE
 | 8. Demo Polish | Complete | 2026-03-02 |
 | 9. E2E Testing with Playwright | Complete | 2026-03-02 |
 | 9.1. Bias Auditor Rework | Complete | 2026-03-02 |
-| 10. LLM Explanations | In Progress (1/3) | — |
+| 10. LLM Explanations | Complete | 2026-03-03 |
 
 ---
 
@@ -161,6 +161,14 @@ Progress: [####################] Phase 10 Plan 02 complete — LLM service + SSE
 | Cached explanation returned as single token | If ai_explanation_text already in DB, return it as cached:true event; avoids redundant LLM calls |
 | think=True on Ollama chat | Enables Qwen 3.5 internal reasoning; only chunk.message.content yielded, never thinking tokens |
 
+### Phase 10 Plan 03 Decisions
+| Decision | Context |
+|----------|---------|
+| useRef alongside useState for accumulated stream | streamedRef.current updated synchronously in token callback; prevents stale closure when onDone reads final text for session.items update |
+| explanationText: string \| null in AIExplanation | Allows spinner-before-text UX; null = loading, vs empty string = no explanation |
+| cached:true token sets isLLM=false | Cached explanation served instantly as single token; marking as template avoids misleading live-LLM impression |
+| generateInsight() preserved in BiasAuditorPage | catch block in fetchInsight() uses it as fallback string when SSE endpoint unreachable |
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -172,8 +180,8 @@ Progress: [####################] Phase 10 Plan 02 complete — LLM service + SSE
 ## Session Continuity
 
 **Last updated**: 2026-03-03
-**Last action**: Completed 10-02 — llm_explanation.py unified service, 3 new SSE endpoints (training explanation, audit insight, dev test), explanation.py deleted
-**Next action**: Phase 10 Plan 03 — frontend SSE client + streaming explanation UI
+**Last action**: Completed 10-03 — frontend SSE streaming UI: streamExplanation(), streamInsight(), streaming AIExplanation, FeedbackReveal + TrainingSession wired, BiasAuditorPage LLM insight
+**Next action**: Phase 10 complete — all 3 plans done
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)

@@ -21,7 +21,7 @@
 - [ ] **Phase 7: Analytics & Research Layer** — Observatory trend charts + Bias Auditor breakdown
 - [ ] **Phase 8: Demo Polish** — Three-persona demo path, performance tuning, pitch-ready UI
 - [x] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow (completed 2026-03-02)
-- [ ] **Phase 10: LLM-Powered Explanations** — Replace template-based Arabic explanations with contextual LLM explanations via local Qwen 3.5 / Ollama
+- [x] **Phase 10: LLM-Powered Explanations** — Replace template-based Arabic explanations with contextual LLM explanations via local Qwen 3.5 / Ollama *(complete 2026-03-03)*
 - [ ] **Phase 11: Onboarding Tour** — Help-button-triggered Driver.js tour walking users through the 3 platform tools
 - [ ] **Phase 12: Active Learning Loop** — Uncertainty and disagreement sampling strategies for more educational training sessions
 
@@ -292,7 +292,7 @@ Plans:
 | BIAS-01 | Phase 7 | Pending |
 | BIAS-02 | Phase 7 | Pending |
 | BIAS-03 | Phase 7 | Pending |
-| AI-02 (enhanced) | Phase 10 | Pending |
+| AI-02 (enhanced) | Phase 10 | Complete |
 | UI-04 | Phase 11 | Pending |
 | TRAIN-08 | Phase 12 | Pending |
 
