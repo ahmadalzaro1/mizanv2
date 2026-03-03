@@ -490,3 +490,43 @@ def download_csv(
         media_type="text/csv; charset=utf-8",
         headers={"Content-Disposition": "attachment; filename=mizan-bias-audit.csv"},
     )
+
+
+@router.get("/results/insight-stream")
+async def stream_insight(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Session = Depends(get_db),
+):
+    """Stream LLM-generated Arabic insight for the latest audit results via SSE."""
+    run = (
+        db.query(BiasAuditRun)
+        .order_by(BiasAuditRun.computed_at.desc())
+        .first()
+    )
+    if not run:
+        raise HTTPException(
+            status_code=404,
+            detail="لم يتم تشغيل التدقيق بعد",
+        )
+
+    # Extract results before generator
+    audit_results = run.results
+
+    async def event_generator():
+        from app.services.llm_explanation import generate_insight_stream
+
+        full_text = ""
+        try:
+            async for token in generate_insight_stream(audit_results):
+                full_text += token
+                yield f"data: {json.dumps({'token': token})}\n\n"
+            yield f"data: {json.dumps({'done': True})}\n\n"
+        except Exception as e:
+            logger.exception("Insight stream error")
+            yield f"data: {json.dumps({'error': str(e)})}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "Connection": "keep-alive"},
+    )
