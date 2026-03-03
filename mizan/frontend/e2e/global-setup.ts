@@ -1,6 +1,10 @@
 import { execSync } from 'node:child_process'
 import { writeFileSync, mkdirSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const API_URL = process.env.API_URL ?? 'http://localhost:8000'
 const FRONTEND_URL = process.env.BASE_URL ?? 'http://localhost:5173'

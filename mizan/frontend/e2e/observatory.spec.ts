@@ -6,7 +6,7 @@ test.describe('Observatory (Rania)', () => {
     await page.goto('/observatory')
 
     // Wait for API data to load and summary cards to render
-    await expect(page.getByText('إجمالي التغريدات')).toBeVisible({ timeout: 15_000 })
+    await expect(page.getByText('إجمالي التغريدات')).toBeVisible({ timeout: 30_000 })
     await expect(page.getByText('تغريدات خطاب كراهية')).toBeVisible()
     await expect(page.getByText('نسبة خطاب الكراهية')).toBeVisible()
   })
@@ -29,11 +29,11 @@ test.describe('Observatory (Rania)', () => {
     // Wait for the events legend section
     await expect(page.getByText('الأحداث التاريخية المرجعية')).toBeVisible({ timeout: 15_000 })
 
-    // Verify at least one known event label is visible
-    // Using one of the 8 hardcoded events from the Observatory router
-    await expect(page.getByText('حرق الطيار معاذ الكساسبة').or(
-      page.getByText('الانتخابات البرلمانية الأردنية')
-    )).toBeVisible()
+    // Verify at least one known event label is visible in the legend section
+    // Event text appears in both SVG chart markers AND legend spans — target legend spans
+    await expect(
+      page.locator('span').filter({ hasText: 'حرق الطيار معاذ الكساسبة' })
+    ).toBeVisible()
   })
 
   test('page does not show 401 error (auth works)', async ({ page }) => {

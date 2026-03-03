@@ -16,33 +16,30 @@ test.describe('Dashboard', () => {
   test('three persona cards are visible', async ({ page }) => {
     await page.goto('/')
 
-    // Observatory card (Rania)
-    await expect(page.getByText('المرصد')).toBeVisible()
-    await expect(page.getByText('رانيا')).toBeVisible()
+    // Card titles (use h3 to avoid matching nav links)
+    await expect(page.locator('h3').filter({ hasText: 'المرصد' })).toBeVisible()
+    await expect(page.locator('h3').filter({ hasText: 'مدقق التحيز' })).toBeVisible()
+    await expect(page.locator('h3').filter({ hasText: 'التدريب' })).toBeVisible()
 
-    // Bias Auditor card (Lina)
-    await expect(page.getByText('مدقق التحيز')).toBeVisible()
-    await expect(page.getByText('لينا')).toBeVisible()
-
-    // Training card (Khaled)
-    await expect(page.getByText('التدريب')).toBeVisible()
-    await expect(page.getByText('خالد')).toBeVisible()
+    // Persona names (substring in longer text)
+    await expect(page.getByText(/رانيا/)).toBeVisible()
+    await expect(page.getByText(/لينا/)).toBeVisible()
+    await expect(page.getByText(/خالد/)).toBeVisible()
   })
 
   test('clicking Observatory card navigates to /observatory', async ({ page }) => {
     await page.goto('/')
 
-    // Click the Observatory card/link
-    await page.getByText('المرصد').click()
+    // Target the card link (inside grid), not the nav link
+    await page.locator('.grid a[href="/observatory"]').click()
 
-    // Verify navigation
     await page.waitForURL('/observatory', { timeout: 10_000 })
   })
 
   test('clicking Bias Auditor card navigates to /audit', async ({ page }) => {
     await page.goto('/')
 
-    await page.getByText('مدقق التحيز').click()
+    await page.locator('.grid a[href="/audit"]').click()
 
     await page.waitForURL('/audit', { timeout: 10_000 })
   })
@@ -50,7 +47,7 @@ test.describe('Dashboard', () => {
   test('clicking Training card navigates to /train', async ({ page }) => {
     await page.goto('/')
 
-    await page.getByText('التدريب').click()
+    await page.locator('.grid a[href="/train"]').click()
 
     await page.waitForURL('/train', { timeout: 10_000 })
   })

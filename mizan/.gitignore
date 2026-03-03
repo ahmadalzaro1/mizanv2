@@ -9,7 +9,13 @@ dist/
 .DS_Store
 *.egg-info/
 
-# Playwright
+# ML model weights (downloaded at first run, ~2.7GB)
+backend/model_cache/
+
+# Internal development planning docs
+.planning/
+
+# Playwright artifacts
 frontend/e2e/fixtures/auth-state.json
 frontend/playwright-report/
 frontend/test-results/

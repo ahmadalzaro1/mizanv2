@@ -2,19 +2,39 @@
 
 ## What This Is
 
-Mizan (ميزان — "the scale") is a web platform that helps Jordanian institutions
-train their content moderators on Arabic/Jordanian dialect hate speech through
-AI-assisted labeling exercises. Moderators review real social media content,
-make judgments, and receive structured feedback from a MARBERT-based AI copilot
-that explains its reasoning in Arabic. Every annotation moderators submit feeds
-a publishable Jordanian Arabic benchmark dataset — the first fine-grained one of
-its kind.
+Mizan (ميزان — "the scale") is a three-component Arabic hate speech platform serving
+Jordan's researchers, policy makers, and content moderators through one unified system.
+
+**Component 1 — Moderator Training (Khaled)**
+Jordanian institutions train content moderators via AI-assisted labeling. Moderators
+review real social media content, submit labels, and receive structured feedback from
+a MARBERT-based AI copilot that explains its reasoning in Arabic. Every annotation
+feeds a publishable Jordanian Arabic benchmark dataset — the first fine-grained one
+with tribalism, refugee-related, and political affiliation categories.
+
+**Component 2 — Observatory (Rania)**
+A public-facing trend visualization showing 8 years of Jordanian hate speech data
+(JHSC 2014–2022), broken down by category and correlated with real historical events
+(refugee influx, elections, COVID). First longitudinal study of Jordanian hate speech.
+
+**Component 3 — Bias Auditor (Lina)**
+A research tool that runs MARBERT against categorized JHSC data and surfaces where
+the model fails — by hate type, by target group. Provides the first published
+performance breakdown of MARBERT on Jordanian dialect hate speech.
+
+## Three Personas
+
+| Persona | Role | Pain | What Mizan gives them |
+|---------|------|------|----------------------|
+| **Khaled**, 28 | Content moderator, Jordanian news platform | 400+ ambiguous posts/day, no training, no feedback | AI-assisted sessions, calibration score, Arabic explanations |
+| **Rania**, 42 | Digital safety officer, Jordanian NGO | No evidence base to advocate for hate speech programs | 8-year trend data, event correlations, downloadable reports |
+| **Lina**, 26 | NLP researcher, University of Jordan | Models don't work on Jordanian dialect, no honest benchmarks | MARBERT bias breakdown by category, citable performance data |
 
 ## Core Value
 
-A moderator who finishes a Mizan training session makes faster, more consistent
-hate speech decisions than one who didn't — and every session they complete makes
-the underlying dataset stronger.
+One platform generates the research contribution (Khaled's labels), validates the
+model (Lina's audit), and makes the problem visible to funders (Rania's observatory).
+The three outputs reinforce each other — the platform is the research pipeline.
 
 ## Requirements
 

@@ -22,7 +22,7 @@ class Settings:
     # LLM Explanation Configuration (Phase 10)
     use_llm_explanations: bool = os.environ.get("USE_LLM_EXPLANATIONS", "true").lower() == "true"
     ollama_host: str = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-    ollama_model: str = os.environ.get("OLLAMA_MODEL", "qwen3.5:9b")
+    ollama_model: str = os.environ.get("OLLAMA_MODEL", "qwen3:8b")
 
 
 settings = Settings()

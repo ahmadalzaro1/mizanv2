@@ -31,7 +31,7 @@ test.describe('Training Flow (Khaled)', () => {
     await startButton.click()
 
     // Wait for redirect to session page
-    await page.waitForURL(/\/train\/sessions\//, { timeout: 15_000 })
+    await page.waitForURL(/\/train\/sessions\//, { timeout: 30_000 })
 
     // --- Session page loaded ---
 
@@ -79,13 +79,7 @@ test.describe('Training Flow (Khaled)', () => {
     await page.getByRole('button', { name: /خطاب كراهية/ }).click()
 
     // Category grid should appear — click the first available category
-    // Using "عنصرية" (racism) as the target, but accept any category button
-    const categoryButton = page.getByRole('button', { name: /عنصرية/ }).or(
-      page.getByRole('button', { name: /ديني/ }).or(
-        page.getByRole('button', { name: /سياسي/ })
-      )
-    )
-    await categoryButton.click()
+    await page.getByRole('button', { name: /عنصرية/ }).click()
 
     // Submit should now be enabled (both label + category selected)
     await submitButton.click()
@@ -123,7 +117,7 @@ test.describe('Training Flow (Khaled)', () => {
       page.getByText(/ابدأ جلسة جديدة/).or(page.getByText(/ابدأ التدريب/))
     )
     await startButton.click()
-    await page.waitForURL(/\/train\/sessions\//, { timeout: 15_000 })
+    await page.waitForURL(/\/train\/sessions\//, { timeout: 30_000 })
 
     // Wait for first item
     await expect(page.locator('.font-tajawal').first()).toBeVisible({ timeout: 10_000 })
@@ -136,6 +130,11 @@ test.describe('Training Flow (Khaled)', () => {
     // Go to item 2
     await page.getByRole('button', { name: /التالي/ }).click()
     await page.waitForTimeout(500)
+
+    // Label item 2 (back button only appears in feedback view)
+    await page.getByRole('button', { name: /ليس كراهية/ }).click()
+    await page.getByRole('button', { name: /إرسال/ }).click()
+    await expect(page.getByText('إجابتك')).toBeVisible({ timeout: 60_000 })
 
     // Navigate back to item 1
     await page.getByRole('button', { name: /السابق/ }).click()

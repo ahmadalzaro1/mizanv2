@@ -24,7 +24,7 @@ services:
       - ./docker-entrypoint-ollama.sh:/entrypoint.sh
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
     environment:
-      OLLAMA_MODEL: qwen3.5:9b
+      OLLAMA_MODEL: qwen3:8b
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost:11434/api/tags || exit 1"]
       interval: 30s

@@ -11,8 +11,8 @@ test.describe('Auth Flow', () => {
     await page.goto('/login')
 
     // Fill login form
-    await page.getByLabel(/email|البريد/i).fill('demo-admin@mizan.local')
-    await page.getByLabel(/password|كلمة/i).fill('demo_admin_2026')
+    await page.locator('input[type="text"]').fill('demo-admin@mizan.local')
+    await page.locator('input[type="password"]').fill('demo_admin_2026')
 
     // Click login button
     await page.getByRole('button', { name: /تسجيل الدخول/ }).click()
