@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 from typing import Annotated
 from uuid import UUID
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Body, Depends, HTTPException, status
 from fastapi.responses import StreamingResponse
 from sqlalchemy import func, update
 from sqlalchemy.orm import Session, joinedload
@@ -12,12 +12,13 @@ from app.core.deps import get_current_user
 from app.models.user import User
 from app.models.content_example import ContentExample
 from app.models.training import (
-    TrainingSession, SessionItem, SessionStatus, ModeratorLabel,
+    TrainingSession, SessionItem, SessionStatus, ModeratorLabel, SamplingStrategy,
 )
 from app.models.content_example import HateType
 from app.schemas.training import (
-    SubmitLabelRequest,
+    SubmitLabelRequest, CreateSessionRequest,
 )
+from app.services.active_learning import select_examples
 
 logger = logging.getLogger(__name__)
 
@@ -67,6 +68,7 @@ def _serialize_session(session: TrainingSession, include_items: bool = False) ->
         "correct_count": correct_count,
         "created_at": session.created_at,
         "completed_at": session.completed_at,
+        "strategy": session.strategy.value if session.strategy else "sequential",
     }
     if include_items:
         result["items"] = [_serialize_item(item) for item in session.items]
@@ -77,21 +79,15 @@ def _serialize_session(session: TrainingSession, include_items: bool = False) ->
 def create_session(
     current_user: Annotated[User, Depends(get_current_user)],
     db: Session = Depends(get_db),
+    request: CreateSessionRequest = Body(default_factory=CreateSessionRequest),
 ):
-    # Find examples NOT already assigned to this user in any session
-    used_ids_subq = (
-        db.query(SessionItem.content_example_id)
-        .join(TrainingSession)
-        .filter(TrainingSession.user_id == current_user.id)
-        .subquery()
-    )
-    examples = (
-        db.query(ContentExample)
-        .filter(~ContentExample.id.in_(used_ids_subq))
-        .order_by(func.random())
-        .limit(20)
-        .all()
-    )
+    # Parse strategy — invalid values default to sequential
+    try:
+        strategy = SamplingStrategy(request.strategy)
+    except ValueError:
+        strategy = SamplingStrategy.sequential
+
+    examples = select_examples(db, current_user.id, strategy)
 
     if len(examples) == 0:
         raise HTTPException(
@@ -104,6 +100,7 @@ def create_session(
         institution_id=current_user.institution_id,
         status=SessionStatus.in_progress,
         total_items=len(examples),
+        strategy=strategy,
     )
     db.add(session)
     db.flush()
@@ -143,6 +140,35 @@ def list_sessions(
         .all()
     )
     return {"sessions": [_serialize_session(s) for s in sessions]}
+
+
+@router.get("/strategies/availability")
+def get_strategy_availability(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Session = Depends(get_db),
+):
+    """Return which sampling strategies are currently available.
+
+    uncertainty requires at least one content_example with ai_confidence set.
+    disagreement requires at least one session_item with is_correct populated.
+    """
+    has_confidence = (
+        db.query(ContentExample)
+        .filter(ContentExample.ai_confidence.isnot(None))
+        .first()
+    ) is not None
+
+    has_labeled_history = (
+        db.query(SessionItem)
+        .filter(SessionItem.is_correct.isnot(None))
+        .first()
+    ) is not None
+
+    return {
+        "sequential": True,
+        "uncertainty": has_confidence,
+        "disagreement": has_labeled_history,
+    }
 
 
 @router.get("/sessions/{session_id}")
