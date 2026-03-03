@@ -1,8 +1,21 @@
 import { api } from './api'
-import type { TrainingSession, SessionItem } from './types'
+import type { TrainingSession, SessionItem, SamplingStrategy } from './types'
 
-export async function createSession(): Promise<TrainingSession> {
-  const res = await api.post<TrainingSession>('/api/training/sessions')
+export interface StrategyAvailability {
+  sequential: boolean
+  uncertainty: boolean
+  disagreement: boolean
+}
+
+export async function createSession(
+  strategy: SamplingStrategy = 'sequential'
+): Promise<TrainingSession> {
+  const res = await api.post<TrainingSession>('/api/training/sessions', { strategy })
+  return res.data
+}
+
+export async function getStrategyAvailability(): Promise<StrategyAvailability> {
+  const res = await api.get<StrategyAvailability>('/api/training/strategies/availability')
   return res.data
 }
 
