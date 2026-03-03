@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-03T09:10:45.428Z"
+last_updated: "2026-03-03T09:32:57.421Z"
 progress:
   total_phases: 13
   completed_phases: 4
-  total_plans: 31
-  completed_plans: 10
+  total_plans: 34
+  completed_plans: 11
 ---
 
 # STATE — Mizan
@@ -28,12 +28,12 @@ progress:
 
 ## Current Position
 
-**Current phase**: Phase 11 — Onboarding Tour
-**Current plan**: Plan 11-02 COMPLETE — Help button + tour IDs + E2E tests
-**Status**: Phase 11 COMPLETE — 2/2 plans done
+**Current phase**: Phase 12 — Active Learning
+**Current plan**: Plan 12-01 COMPLETE — Migration + SamplingStrategy enum + active_learning.py service
+**Status**: Phase 12 IN PROGRESS — 1/3 plans done
 
 ```
-Progress: [####################] Phase 11 Plan 02 complete — Onboarding tour fully wired and tested
+Progress: [####################] Phase 12 Plan 01 complete — Active learning data + service foundation
 ```
 
 ---
@@ -180,6 +180,13 @@ Progress: [####################] Phase 11 Plan 02 complete — Onboarding tour f
 | TourProvider inside BrowserRouter, outside Routes | Both Layout (persistent) and Dashboard (auto-trigger) can call useTour() |
 | driver.css imported after index.css in main.tsx | Prevents Tailwind preflight from overriding driver.js button styles |
 | #tour-* element IDs used in step selectors | Driver.js gracefully skips missing elements; IDs added to DOM in Plan 02 |
+
+### Phase 12 Plan 01 Decisions
+| Decision | Context |
+|----------|---------|
+| SamplingStrategy enum in training.py | Colocation with SessionStatus/ModeratorLabel keeps all session enums in one file |
+| ai_confidence on content_examples (not session_items) | Corpus-level pre-compute; session_items.ai_confidence is per-inference, content_examples.ai_confidence is the pre-scored uncertainty value |
+| Disagreement fallback to uncertainty | Prevents empty result sets when labeled history is absent (new deployments or fresh DBs) |
 
 ### Phase 11 Plan 02 Decisions
 | Decision | Context |
@@ -386,4 +393,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 10-llm-explanations P01 | 2 | 2 tasks | 6 files |
 | Phase 11-onboarding-tour P01 | 1 | 2 tasks | 5 files |
 | Phase 11-onboarding-tour P02 | 197 | 2 tasks | 3 files |
+| Phase 12-active-learning P01 | 5 | 2 tasks | 4 files |
 
