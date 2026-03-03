@@ -150,3 +150,51 @@ export async function runAuditStream(
   }
   return result
 }
+
+export async function streamInsight(
+  onToken: (token: string) => void,
+): Promise<string> {
+  const baseUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
+  const token = localStorage.getItem('mizan_token')
+
+  const response = await fetch(`${baseUrl}/api/audit/results/insight-stream`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+
+  if (!response.ok) throw new Error(`Insight stream failed: ${response.status}`)
+
+  const reader = response.body!.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  let fullText = ''
+
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+
+    buffer += decoder.decode(value, { stream: true })
+    const lines = buffer.split('\n')
+    buffer = lines.pop() ?? ''
+
+    for (const line of lines) {
+      if (line.startsWith('data: ')) {
+        try {
+          const data = JSON.parse(line.slice(6))
+          if (data.error) throw new Error(data.error)
+          if (data.done) return fullText
+          if (data.token) {
+            fullText += data.token
+            onToken(data.token)
+          }
+        } catch (e) {
+          if (e instanceof SyntaxError) continue
+          throw e
+        }
+      }
+    }
+  }
+
+  return fullText
+}

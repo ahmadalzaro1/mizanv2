@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAuditResults, runAudit, runAuditStream, downloadAuditCsv } from '../lib/audit-api'
+import { getAuditResults, runAudit, runAuditStream, downloadAuditCsv, streamInsight } from '../lib/audit-api'
 import type { AuditRun, AuditResults } from '../lib/audit-api'
 import BiasChart from '../components/BiasChart'
 import ConfidenceHistogram from '../components/ConfidenceHistogram'
@@ -80,6 +80,10 @@ export default function BiasAuditorPage() {
   const [error, setError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<TabId>('overview')
 
+  // Phase 10: LLM insight streaming state
+  const [insightText, setInsightText] = useState<string | null>(null)
+  const [isInsightStreaming, setIsInsightStreaming] = useState(false)
+
   useEffect(() => {
     getAuditResults()
       .then(setAuditRun)
@@ -88,6 +92,30 @@ export default function BiasAuditorPage() {
       })
       .finally(() => setLoading(false))
   }, [])
+
+  async function fetchInsight() {
+    setInsightText(null)
+    setIsInsightStreaming(true)
+    try {
+      await streamInsight((token) => {
+        setInsightText((prev) => (prev ?? '') + token)
+      })
+    } catch {
+      // Fallback to frontend template
+      if (auditRun?.results) {
+        setInsightText(generateInsight(auditRun.results))
+      }
+    } finally {
+      setIsInsightStreaming(false)
+    }
+  }
+
+  useEffect(() => {
+    if (auditRun?.results) {
+      fetchInsight()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auditRun?.id])
 
   async function handleRunAudit() {
     setRunning(true)
@@ -245,12 +273,22 @@ export default function BiasAuditorPage() {
           <div>
             {activeTab === 'overview' && (
               <>
-                {/* Auto-generated Arabic insight summary */}
+                {/* LLM-generated Arabic insight summary — Phase 10 streaming */}
                 <div className="mb-6 rounded-lg border border-blue-200 bg-blue-50 p-4">
                   <h4 className="mb-2 text-sm font-bold text-blue-800">ملخص التحليل</h4>
-                  <p className="text-sm leading-relaxed text-blue-700">
-                    {generateInsight(results)}
-                  </p>
+                  {isInsightStreaming && !insightText ? (
+                    <div className="flex items-center gap-2">
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+                      <span className="text-sm text-blue-500">جارٍ التحليل...</span>
+                    </div>
+                  ) : (
+                    <p className="text-sm leading-relaxed text-blue-700">
+                      {insightText ?? generateInsight(results)}
+                      {isInsightStreaming && (
+                        <span className="inline-block h-4 w-1 animate-pulse bg-blue-600 ms-1" />
+                      )}
+                    </p>
+                  )}
                 </div>
 
                 {/* Weakness alert */}
