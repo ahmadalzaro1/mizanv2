@@ -189,7 +189,10 @@
   3. Classify and training endpoints return LLM-generated explanations instead of templates.
   4. If Ollama is unavailable, the system falls back to existing template-based explanations gracefully.
   5. Explanation quality: contextual, referencing specific words/phrases from the input text.
-**Plans**: TBD — run `/gsd:plan-phase 10` to break down
+**Plans**: 3 plans — 2/3 complete
+- Plan 10-01: Ollama Docker service + backend config + health endpoint (COMPLETE 2026-03-03)
+- Plan 10-02: llm_explanation.py service + SSE endpoints for training/audit/dev (COMPLETE 2026-03-03)
+- Plan 10-03: Frontend SSE client + streaming explanation UI (TODO)
 **Scope**: Add Ollama to docker-compose, create `llm_explanation.py` service, wire into classify + training endpoints, fallback to templates if Ollama unavailable
 
 ---

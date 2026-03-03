@@ -29,11 +29,11 @@ progress:
 ## Current Position
 
 **Current phase**: Phase 10 — LLM Explanations
-**Current plan**: Plan 10-01 COMPLETE — Ollama Docker service + backend config + health endpoint
-**Status**: Phase 10 IN PROGRESS — 1/3 plans done
+**Current plan**: Plan 10-02 COMPLETE — LLM explanation service + SSE endpoints
+**Status**: Phase 10 IN PROGRESS — 2/3 plans done
 
 ```
-Progress: [##########] Phase 10 Plan 01 complete — Ollama infrastructure wired
+Progress: [####################] Phase 10 Plan 02 complete — LLM service + SSE endpoints wired
 ```
 
 ---
@@ -151,6 +151,16 @@ Progress: [##########] Phase 10 Plan 01 complete — Ollama infrastructure wired
 | Graceful failure on Ollama unreachable | Health returns ollama_ready=False, never raises 500 |
 | USE_LLM_EXPLANATIONS toggle | Env var disables LLM entirely for CI/low-resource environments |
 
+### Phase 10 Plan 02 Decisions
+| Decision | Context |
+|----------|---------|
+| llm_explanation.py single module | Template functions become fallback path co-located with LLM generators; no separate explanation.py |
+| submit_label leaves ai_explanation_text=None | Decouples synchronous label submission from potentially slow LLM call; SSE generates asynchronously |
+| generate_stream() yields template as one token on fallback | Callers accumulate tokens uniformly regardless of streaming vs single-token response |
+| Data extracted before async generators | SQLAlchemy ORM fields read synchronously before generator closes over them; prevents DetachedInstanceError |
+| Cached explanation returned as single token | If ai_explanation_text already in DB, return it as cached:true event; avoids redundant LLM calls |
+| think=True on Ollama chat | Enables Qwen 3.5 internal reasoning; only chunk.message.content yielded, never thinking tokens |
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -162,8 +172,8 @@ Progress: [##########] Phase 10 Plan 01 complete — Ollama infrastructure wired
 ## Session Continuity
 
 **Last updated**: 2026-03-03
-**Last action**: Completed 10-01 — Ollama Docker service with pull-first entrypoint, backend config LLM settings, extended health endpoint
-**Next action**: Phase 10 Plan 02 — implement llm_explanation.py service module (Ollama async streaming)
+**Last action**: Completed 10-02 — llm_explanation.py unified service, 3 new SSE endpoints (training explanation, audit insight, dev test), explanation.py deleted
+**Next action**: Phase 10 Plan 03 — frontend SSE client + streaming explanation UI
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
