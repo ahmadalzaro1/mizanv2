@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-03T08:33:46.044Z"
+last_updated: "2026-03-03T09:03:02.766Z"
 progress:
   total_phases: 13
   completed_phases: 3
-  total_plans: 29
-  completed_plans: 8
+  total_plans: 31
+  completed_plans: 9
 ---
 
 # STATE — Mizan
@@ -28,12 +28,12 @@ progress:
 
 ## Current Position
 
-**Current phase**: Phase 10 — LLM Explanations
-**Current plan**: Plan 10-03 COMPLETE — Frontend SSE streaming explanation UI
-**Status**: Phase 10 COMPLETE — 3/3 plans done
+**Current phase**: Phase 11 — Onboarding Tour
+**Current plan**: Plan 11-01 COMPLETE — Tour infrastructure (driver.js, TourProvider, CSS, App wiring)
+**Status**: Phase 11 IN PROGRESS — 1/2 plans done
 
 ```
-Progress: [####################] Phase 10 Plan 03 complete — Frontend streaming UI wired
+Progress: [####################] Phase 11 Plan 01 complete — driver.js TourProvider context wired
 ```
 
 ---
@@ -53,6 +53,7 @@ Progress: [####################] Phase 10 Plan 03 complete — Frontend streamin
 | 9. E2E Testing with Playwright | Complete | 2026-03-02 |
 | 9.1. Bias Auditor Rework | Complete | 2026-03-02 |
 | 10. LLM Explanations | Complete | 2026-03-03 |
+| 11. Onboarding Tour | In Progress | — |
 
 ---
 
@@ -169,6 +170,17 @@ Progress: [####################] Phase 10 Plan 03 complete — Frontend streamin
 | cached:true token sets isLLM=false | Cached explanation served instantly as single token; marking as template avoids misleading live-LLM impression |
 | generateInsight() preserved in BiasAuditorPage | catch block in fetchInsight() uses it as fallback string when SSE endpoint unreachable |
 
+### Phase 11 Plan 01 Decisions
+| Decision | Context |
+|----------|---------|
+| driver.js ^1.4.0 (not shepherd.js or intro.js) | Zero-dependency, built-in TS types, RTL-friendly, active maintenance |
+| tourSeen as useState (not live localStorage read) | Reactive — Layout re-renders and removes pulse animation when tour completes |
+| onDestroyed fires on all exit paths | Fires on complete + skip + dismiss, so mizan_tour_seen always set correctly |
+| driverRef.current?.destroy() before drive() | Prevents double-click creating two overlapping tour instances |
+| TourProvider inside BrowserRouter, outside Routes | Both Layout (persistent) and Dashboard (auto-trigger) can call useTour() |
+| driver.css imported after index.css in main.tsx | Prevents Tailwind preflight from overriding driver.js button styles |
+| #tour-* element IDs used in step selectors | Driver.js gracefully skips missing elements; IDs added to DOM in Plan 02 |
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -180,8 +192,8 @@ Progress: [####################] Phase 10 Plan 03 complete — Frontend streamin
 ## Session Continuity
 
 **Last updated**: 2026-03-03
-**Last action**: Completed 10-03 — frontend SSE streaming UI: streamExplanation(), streamInsight(), streaming AIExplanation, FeedbackReveal + TrainingSession wired, BiasAuditorPage LLM insight
-**Next action**: Phase 10 complete — all 3 plans done
+**Last action**: Completed 11-01 — driver.js installed, TourProvider/useTour/isTourSeen created with 6-step Arabic tour, driver.css imported, popover CSS overrides added, TourProvider wrapping App.tsx Routes
+**Next action**: Phase 11 Plan 02 — add tour trigger points (Layout help button + Dashboard auto-trigger)
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
@@ -365,4 +377,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 09.1-bias-auditor-rework P01 | 6 | 2 tasks | 1 files |
 | Phase 09.1-bias-auditor-rework P03 | 138 | 2 tasks | 2 files |
 | Phase 10-llm-explanations P01 | 2 | 2 tasks | 6 files |
+| Phase 11-onboarding-tour P01 | 1 | 2 tasks | 5 files |
 
