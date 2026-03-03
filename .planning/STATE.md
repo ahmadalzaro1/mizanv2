@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-03T09:32:57.421Z"
+last_updated: "2026-03-03T09:35:40.217Z"
 progress:
   total_phases: 13
   completed_phases: 4
   total_plans: 34
-  completed_plans: 11
+  completed_plans: 12
 ---
 
 # STATE — Mizan
@@ -29,11 +29,11 @@ progress:
 ## Current Position
 
 **Current phase**: Phase 12 — Active Learning
-**Current plan**: Plan 12-01 COMPLETE — Migration + SamplingStrategy enum + active_learning.py service
-**Status**: Phase 12 IN PROGRESS — 1/3 plans done
+**Current plan**: Plan 12-02 COMPLETE — Router wiring + availability endpoint + precompute script
+**Status**: Phase 12 IN PROGRESS — 2/3 plans done
 
 ```
-Progress: [####################] Phase 12 Plan 01 complete — Active learning data + service foundation
+Progress: [####################] Phase 12 Plan 02 complete — Active learning API surface wired
 ```
 
 ---
@@ -187,6 +187,13 @@ Progress: [####################] Phase 12 Plan 01 complete — Active learning d
 | SamplingStrategy enum in training.py | Colocation with SessionStatus/ModeratorLabel keeps all session enums in one file |
 | ai_confidence on content_examples (not session_items) | Corpus-level pre-compute; session_items.ai_confidence is per-inference, content_examples.ai_confidence is the pre-scored uncertainty value |
 | Disagreement fallback to uncertainty | Prevents empty result sets when labeled history is absent (new deployments or fresh DBs) |
+
+### Phase 12 Plan 02 Decisions
+| Decision | Context |
+|----------|---------|
+| CreateSessionRequest uses str field (not enum) | Invalid values fall back to sequential silently; avoids 422 on unknown strategy strings |
+| strategies/availability placed before /{session_id} | FastAPI routes match in registration order; static path must precede path-param route |
+| Body(default_factory=CreateSessionRequest) | Allows POST with empty body to remain backward-compatible (no body = sequential) |
 
 ### Phase 11 Plan 02 Decisions
 | Decision | Context |
@@ -394,4 +401,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 11-onboarding-tour P01 | 1 | 2 tasks | 5 files |
 | Phase 11-onboarding-tour P02 | 197 | 2 tasks | 3 files |
 | Phase 12-active-learning P01 | 5 | 2 tasks | 4 files |
+| Phase 12-active-learning P02 | 8 | 2 tasks | 3 files |
 
