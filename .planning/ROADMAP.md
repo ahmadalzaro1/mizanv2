@@ -21,6 +21,9 @@
 - [ ] **Phase 7: Analytics & Research Layer** — Observatory trend charts + Bias Auditor breakdown
 - [ ] **Phase 8: Demo Polish** — Three-persona demo path, performance tuning, pitch-ready UI
 - [x] **Phase 9: E2E Testing with Playwright** — Automated end-to-end tests for three-persona demo flow (completed 2026-03-02)
+- [ ] **Phase 10: LLM-Powered Explanations** — Replace template-based Arabic explanations with contextual LLM explanations via local Qwen 3.5 / Ollama
+- [ ] **Phase 11: Onboarding Tour** — Help-button-triggered Driver.js tour walking users through the 3 platform tools
+- [ ] **Phase 12: Active Learning Loop** — Uncertainty and disagreement sampling strategies for more educational training sessions
 
 ---
 
@@ -176,6 +179,62 @@
 - Plan 9.1: Playwright Infrastructure Setup (Wave 1)
 - Plan 9.2: E2E Test Suite Implementation (Wave 2)
 
+### Phase 10: LLM-Powered Explanations
+**Goal:** Replace template-based Arabic explanations with contextual LLM explanations using local Qwen 3.5 via Ollama — producing richer, more natural Arabic reasoning for each classification.
+**Depends on:** Phase 09.1
+**Requirements**: AI-02 (enhanced)
+**Success Criteria**:
+  1. Ollama service added to docker-compose with Qwen 3.5 model pulled on first run.
+  2. New `llm_explanation.py` service generates Arabic explanations via local Qwen 3.5.
+  3. Classify and training endpoints return LLM-generated explanations instead of templates.
+  4. If Ollama is unavailable, the system falls back to existing template-based explanations gracefully.
+  5. Explanation quality: contextual, referencing specific words/phrases from the input text.
+**Plans**: TBD — run `/gsd:plan-phase 10` to break down
+**Scope**: Add Ollama to docker-compose, create `llm_explanation.py` service, wire into classify + training endpoints, fallback to templates if Ollama unavailable
+
+---
+
+### Phase 11: Onboarding Tour
+**Goal:** Add a help-button-triggered onboarding tour using Driver.js that walks users through the 3 platform tools — reducing time-to-first-action for new users.
+**Depends on:** Phase 10
+**Requirements**: UI-04 (new)
+**Success Criteria**:
+  1. Driver.js installed and integrated into the React frontend.
+  2. A help button (?) appears in the Layout navbar, visible on all authenticated pages.
+  3. Clicking the help button launches a guided tour with steps for Dashboard, Training, Observatory, and Bias Auditor.
+  4. Tour highlights relevant UI elements with Arabic descriptions.
+  5. Tour state persists — first-time users see it automatically, returning users trigger via help button.
+**Plans**: TBD — run `/gsd:plan-phase 11` to break down
+**Scope**: Install driver.js, create OnboardingTour component, add help button to Layout navbar, define tour steps for Dashboard/Training/Observatory/BiasAuditor
+
+---
+
+### Phase 12: Active Learning Loop
+**Goal:** Add uncertainty and disagreement sampling strategies to training sessions so moderators practice on the most educational examples — improving calibration faster.
+**Depends on:** Phase 10
+**Requirements**: TRAIN-08 (new)
+**Success Criteria**:
+  1. New `active_learning.py` service implements 3 sampling strategies: sequential, uncertainty, and disagreement.
+  2. Migration adds `ai_confidence` column to content_examples for caching model confidence scores.
+  3. Training page includes a strategy picker (dropdown) before starting a session.
+  4. Uncertainty sampling selects examples where MARBERT confidence is closest to 0.5.
+  5. Disagreement sampling selects examples where prior moderator labels disagree with ground truth.
+  6. Sequential strategy preserves current behavior as the default.
+**Plans**: TBD — run `/gsd:plan-phase 12` to break down
+**Scope**: New `active_learning.py` service, `ai_confidence` column migration, strategy picker in TrainingPage, 3 strategies (sequential/uncertainty/disagreement)
+
+---
+
+### Phase 09.1: Bias Auditor Rework (INSERTED)
+
+**Goal:** [Urgent work - to be planned]
+**Requirements**: TBD
+**Depends on:** Phase 9
+**Plans:** 1/3 plans executed
+
+Plans:
+- [x] TBD (run /gsd:plan-phase 09.1 to break down) (completed 2026-03-02)
+
 ---
 
 ## Progress
@@ -191,6 +250,10 @@
 | 7. Analytics & Research Layer | 0/4 | Planned | - |
 | 8. Demo Polish | 0/? | Not started | - |
 | 9. E2E Testing with Playwright | 2/2 | Complete   | 2026-03-02 |
+| 9.1 Bias Auditor Rework | 3/3 | Complete | 2026-03-02 |
+| 10. LLM-Powered Explanations | 1/3 | In Progress|  |
+| 11. Onboarding Tour | 0/? | Not started | - |
+| 12. Active Learning Loop | 0/? | Not started | - |
 
 ---
 
@@ -226,15 +289,16 @@
 | BIAS-01 | Phase 7 | Pending |
 | BIAS-02 | Phase 7 | Pending |
 | BIAS-03 | Phase 7 | Pending |
+| AI-02 (enhanced) | Phase 10 | Pending |
+| UI-04 | Phase 11 | Pending |
+| TRAIN-08 | Phase 12 | Pending |
 
-**Total mapped: 28/28 v1 requirements**
+**Total mapped: 28/28 v1 requirements + 3 v2 requirements**
 
 ---
 
 *Created: 2026-03-02*
-*Updated: 2026-03-02 — Expanded to three-component platform (Observatory + Bias Auditor + Mizan)*
-
-### Phase 09.1: Bias Auditor Rework (INSERTED)
+*Updated: 2026-03-03 — Added phases 10-12 (LLM explanations, onboarding tour, active learning)*
 
 **Goal:** [Urgent work - to be planned]
 **Requirements**: TBD

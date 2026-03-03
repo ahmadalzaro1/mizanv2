@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T22:53:20.152Z"
+last_updated: "2026-03-03T08:17:58.740Z"
 progress:
-  total_phases: 10
+  total_phases: 13
   completed_phases: 2
-  total_plans: 26
-  completed_plans: 5
+  total_plans: 29
+  completed_plans: 6
 ---
 
 # STATE — Mizan
@@ -28,12 +28,12 @@ progress:
 
 ## Current Position
 
-**Current phase**: Phase 09.1 — Bias Auditor Rework
-**Current plan**: Plan 09.1-03 COMPLETE — BiasAuditorPage tabbed layout + SSE + E2E tests
-**Status**: Phase 09.1 COMPLETE — All 3/3 plans done
+**Current phase**: Phase 10 — LLM Explanations
+**Current plan**: Plan 10-01 COMPLETE — Ollama Docker service + backend config + health endpoint
+**Status**: Phase 10 IN PROGRESS — 1/3 plans done
 
 ```
-Progress: [##########] 10/10 phases complete (Phase 09.1 complete — 3/3 plans done)
+Progress: [##########] Phase 10 Plan 01 complete — Ollama infrastructure wired
 ```
 
 ---
@@ -52,6 +52,7 @@ Progress: [##########] 10/10 phases complete (Phase 09.1 complete — 3/3 plans 
 | 8. Demo Polish | Complete | 2026-03-02 |
 | 9. E2E Testing with Playwright | Complete | 2026-03-02 |
 | 9.1. Bias Auditor Rework | Complete | 2026-03-02 |
+| 10. LLM Explanations | In Progress (1/3) | — |
 
 ---
 
@@ -139,6 +140,17 @@ Progress: [##########] 10/10 phases complete (Phase 09.1 complete — 3/3 plans 
 | Tab buttons as <button> not anchor | getByRole('button') selectors work cleanly in Playwright without URL navigation |
 | Metric cards pinned above tab nav | Per CONTEXT.md locked decision: overall metrics always visible regardless of active tab |
 
+### Phase 10 Plan 01 Decisions
+| Decision | Context |
+|----------|---------|
+| qwen3.5:9b (not 8b) | No 8b variant exists on Ollama hub; 9b is 6.6GB Q4_K_M build |
+| wget not curl in entrypoint | curl absent from ollama/ollama Docker image |
+| start_period: 300s healthcheck | First-run model pull can take several minutes |
+| Ollama port NOT exposed to host | Internal Docker network only (no ports: mapping) |
+| classify_health converted to async def | Required for AsyncClient.list() await |
+| Graceful failure on Ollama unreachable | Health returns ollama_ready=False, never raises 500 |
+| USE_LLM_EXPLANATIONS toggle | Env var disables LLM entirely for CI/low-resource environments |
+
 ### Todos Carried Forward
 *(None — Phase 3 clean)*
 
@@ -149,9 +161,9 @@ Progress: [##########] 10/10 phases complete (Phase 09.1 complete — 3/3 plans 
 
 ## Session Continuity
 
-**Last updated**: 2026-03-02
-**Last action**: Completed 09.1-03 — BiasAuditorPage reworked with 4-tab layout, SSE progress bar, Arabic insight summary; E2E tests updated
-**Next action**: Phase 09.1 COMPLETE — all 3 plans done; platform is pitch-ready
+**Last updated**: 2026-03-03
+**Last action**: Completed 10-01 — Ollama Docker service with pull-first entrypoint, backend config LLM settings, extended health endpoint
+**Next action**: Phase 10 Plan 02 — implement llm_explanation.py service module (Ollama async streaming)
 
 **Session 2026-03-03 bug fix results:**
 - Ran `alembic upgrade head` — 4 pending migrations (phases 3, 5, 7a, 7b)
@@ -334,4 +346,5 @@ CODE_MIXED_THRESHOLD=0.30
 | Phase 09.1-bias-auditor-rework P02 | 2 | 3 tasks | 4 files |
 | Phase 09.1-bias-auditor-rework P01 | 6 | 2 tasks | 1 files |
 | Phase 09.1-bias-auditor-rework P03 | 138 | 2 tasks | 2 files |
+| Phase 10-llm-explanations P01 | 2 | 2 tasks | 6 files |
 
