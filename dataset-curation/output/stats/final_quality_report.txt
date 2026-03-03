@@ -1,0 +1,76 @@
+======================================================================
+MIZAN BENCHMARK V1 - FINAL QUALITY REPORT
+======================================================================
+
+## Dataset Overview
+Total examples: 392
+Hate: 196 (50.0%)
+Not hate: 196 (50.0%)
+
+## Encoding Quality
+Examples with encoding issues: 16
+Encoding quality: 95.9%
+
+## Text Quality
+Average length: 74.5 characters
+Min length: 12 characters
+Max length: 275 characters
+Empty texts: 0
+Very short texts (<10 chars): 0
+
+## Hate Type Distribution
+  gender: 162 (82.7%)
+  race: 34 (17.3%)
+
+## Source Dataset Distribution
+  jhsc: 196 (50.0%)
+  letmi: 160 (40.8%)
+  mlma: 36 (9.2%)
+
+## Dialect Distribution
+  jordanian: 196 (50.0%)
+  levantine: 160 (40.8%)
+  mixed: 36 (9.2%)
+
+## Sample Verification (First 5 of each category)
+
+### Hate Examples:
+
+1. [gender] letmi/levantine
+   Text: @DimaSadek يا هبيلة الهبلان ديما صادق صور والنبطية عم يثورو عا معلمك نبيه بري قب...
+
+2. [gender] letmi/levantine
+   Text: @ALJADEEDNEWS مجموعة مسلحة 
+فتانة رقم واحد 
+نانسي السبع...
+
+3. [gender] letmi/levantine
+   Text: @Hasan_S_88 @DimaSadek العمى شو وقحة عنجد❗️لا و رافعة الكلفة كمان...
+
+4. [race] mlma/mixed
+   Text: @user @user هولاء مجموعة من خنازير أمريكا...
+
+5. [gender] letmi/levantine
+   Text: @yumnafawaz كذابة كلن يعني كلن كلكم مرتشين ومنافقين وشذاذي الراي...
+
+### Not Hate Examples:
+
+1. jhsc/jordanian
+   Text: : محكمة الاحتلال العسكرية تؤجل محاكمة الأسير المهندس محمد الحلبي من قطاع غزة، حت...
+
+2. jhsc/jordanian
+   Text: كان النبي (ص) إذا عصفت الريح قال: اللهم إني أسألك خيرها وخير ما فيها، وخير ما أر...
+
+3. jhsc/jordanian
+   Text: شوفوا ي حرام ...
+
+4. jhsc/jordanian
+   Text: مرحبا يا جماعة .. مين بفهم بالقطط او اذا في حد طب بيطري سينير !
+...
+
+5. jhsc/jordanian
+   Text: تخيلوا يبنات وحده من فولوينق فقدتها وادور عحسابها بالسيرش ماحصلت يعني واضح اجتها...
+
+======================================================================
+QUALITY VERIFICATION PASSED
+======================================================================

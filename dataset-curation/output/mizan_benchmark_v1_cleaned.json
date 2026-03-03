@@ -1,0 +1,3958 @@
+{
+  "metadata": {
+    "name": "Mizan Benchmark v1 (Cleaned)",
+    "version": "1.0.0-cleaned",
+    "created_at": "2026-03-03T01:42:09.819206",
+    "total_examples": 392,
+    "quality_notes": [
+      "Encoding issues fixed",
+      "Duplicates removed",
+      "Borderline cases flagged",
+      "Balanced 50/50 distribution"
+    ],
+    "schema": {
+      "label": [
+        "hate",
+        "not_hate"
+      ],
+      "hate_types": [
+        "race",
+        "religion",
+        "ideology",
+        "gender",
+        "disability",
+        "social_class",
+        "tribalism",
+        "refugee_related",
+        "political_affiliation"
+      ],
+      "dialects": [
+        "jordanian",
+        "levantine",
+        "mixed"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "letmi_2f2df415",
+      "text": "@DimaSadek يا هبيلة الهبلان ديما صادق صور والنبطية عم يثورو عا معلمك نبيه بري قبل كل الناس لانه حركة الظالمين حرقة قلبهم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_a3af1848",
+      "text": "@ALJADEEDNEWS مجموعة مسلحة \r\nفتانة رقم واحد \r\nنانسي السبع",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_78f591e4",
+      "text": "@Hasan_S_88 @DimaSadek العمى شو وقحة عنجد❗️لا و رافعة الكلفة كمان",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_7baf8953",
+      "text": "@user @user هولاء مجموعة من خنازير أمريكا",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1346737554356396034",
+      "text": ": محكمة الاحتلال العسكرية تؤجل محاكمة الأسير المهندس محمد الحلبي من قطاع غزة، حتى تاريخ 14/1/2021 وستكون المحكمة الـ 155 التي يعرض فيها على محاكم الاحتلال منذ عام 2016 دون إدانة أو اعتراف بالتهم المنسوبة إليه .\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_dd0c1740",
+      "text": "@yumnafawaz كذابة كلن يعني كلن كلكم مرتشين ومنافقين وشذاذي الراي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_0f6a2a72",
+      "text": "@DimaSadek @LBCI_NEWS يا ريت يكمشوكي ويلفوكي بعلم بلدك الاصلي يعني الاسرائيلي\r\nيا الله ما احلاها يسحبوكي من شعرك ويمسحو فيكي الارض",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_565259049961549824",
+      "text": "كان النبي (ص) إذا عصفت الريح قال: اللهم إني أسألك خيرها وخير ما فيها، وخير ما أرسلت به، وأعوذ بك من شرها وشر ما فيها، وشر ما أرسلت به.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_fcfe5bb1",
+      "text": "@DimaSadek يا فاسدة روحي شوفو زوجك الناصب تفوو يا بلا شرف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_723831168785768000",
+      "text": "شوفوا ي حرام ",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "mlma_785761dd",
+      "text": "@user @user ماذا تقول يا شارب بول البعير لعنة الله عليك وعلى ال سلول الخونة @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1215655089333030917",
+      "text": "مرحبا يا جماعة .. مين بفهم بالقطط او اذا في حد طب بيطري سينير !\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_76f08c7a",
+      "text": "@DimaSadek سدي بوزك سيد عراسك وراس اتباعك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_759334718630420480",
+      "text": "تخيلوا يبنات وحده من فولوينق فقدتها وادور عحسابها بالسيرش ماحصلت يعني واضح اجتهادي آخر شي احصلها عند حساب وحده مسويه بلوك انبلوك؟ ؟؟؟؟؟؟؟",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_15decd1f",
+      "text": "@DimaSadek يا بومة يا حية يا دودة يا عقربة يا ديما",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_453df775",
+      "text": "@DimaSadek #ديما_الواطيه والشرشوحة والتافهة وأم الشوو اوف واللي بتحب تنسب وتتبهدل\r\nديما المصلحجية الكذابة اللي همها… https://t.co/hlCuCdAT2L",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_583920358694072320",
+      "text": "معالي وزير التربية والتعليم يتحدث مع بعض الطلاب المشاركين في",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_578842432919372000",
+      "text": " طب اشربي شي بتهضمي ",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "very positive"
+    },
+    {
+      "id": "letmi_1c796bf3",
+      "text": "@elissianmatthi1 @DimaSadek صباط السيد حسن بنيعك\r\nوصباط جبران باسيل عا راسك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_c03c40d6",
+      "text": "@DimaSadek هولي صارو عندك كل مؤيدين المقاومة... ليش بتشملي الكل بفعل كم واحد.. حاقدة جدا انتي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_0cb6369c",
+      "text": "@DimaSadek تفوووو على بداحتك #ديما_الواطية و كل اهلك كلن يعني كلن واطيين متلك و طالعة الن قذرة و مجوية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_797934040544198656",
+      "text": "أستغفر الله الذي لا إله إلا هو الحي القيوم و أتوب إليه .. سبحان الله و بحمده سبحان الله العظيم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1007584311615336448",
+      "text": "اللهم فرحة أنجلط من وراها وأموت  خلص",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_1e64c540",
+      "text": "@DimaSadek يا حية انضبي وكفى بخ سم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_8714a6f3",
+      "text": "@DimaSadek انا طبعا مع الحراك ، و مع تنظيمه اكتر بس لو سمحتي بقصّة سلاح المقاومة او يلي مسمّيتيها الضاحية ، عذرًا م… https://t.co/IaxS0qyrza",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_85c909ba",
+      "text": "@DimaSadek إنتي عم تتخايلي إنو إذا كانوا الحزب و الحركةو طلعتي قدامن  ممكن يصير وجّك خريطة لبنان،تخيالي بس�",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_b7d2d133",
+      "text": "ههههههه ناطق التخالف أصلا كان شارب بول البعير. @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_e0b5a0b7",
+      "text": "@DimaSadek ما بتقدري الا تكوني زبالة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1058175474327860000",
+      "text": "﴿وَقِفوهُم إِنَّهُم مَسئولونَ﴾ [الصافات: ٢٤] واحبسوهم قبل إدخالهم النار للحساب; فهم مسؤولون; ثم بعد ذلك سوقوهم إلى النار. - المختصر في التفسير",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_718099211078791174",
+      "text": "الدول الي بتعتمد باقتصادها ع القطاع العام مثل الشب الي ابوه بعده بصرف عليه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_299646ac",
+      "text": "@DimaSadek قلبك كبير وبيساع كتييير... رخيصه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_7be2283d",
+      "text": "@yumnafawaz لو بتسمعينا سكوتك يا إم نصف لسان.. بعد ناقصنا هيك بضاعة عتلانة همّ النازحين..",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_772568354561417216",
+      "text": "\"\" من الناس الي قلبهم طيب جداً لدرجة العميان احياناً حلو الواحد يكون منيح و قلبو صافي بس مش دايماً بزبط الشخصيه الي تقريباً محبوبه للكل",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_3711127d",
+      "text": "@DimaSadek هلق إنت مصدقة حالك إنك ثورية ومناضلة عن جد",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_490685208631328768",
+      "text": "هو انت يا ابراهيم حمامي لو تنخرس بكون احسن لاهل غزه انت قاعد في لندن وبتنظر من بعيد وبزيد على النار كاز ولك ابادات قاعد بصيرفي غزه ارحموها",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_649767144339697664",
+      "text": "الاقرباء هم من يتمنون فشلنا كي لا يشعرون بالنقص......",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_28c01fb3",
+      "text": "@DimaSadek تافهة منحطة وبايخة \r\n#لعبي_عقدك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_492473212110774000",
+      "text": "اذا ابي احرق اعصاب احد اقرأ وما ارد .",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_d5537083",
+      "text": "@DimaSadek روحي انضبي يا غبية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_1f949080",
+      "text": "@DimaSadek العالم كلها بدها يا يا كلبة وبدو يضل قاعد على قلبك �",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_817471488186089472",
+      "text": "نفسي احكي مع حدا بعمق",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_77c7c56c",
+      "text": "@NicoleND22 @DimaSadek معلي بعد السحسوح بترجع تعتذر���صارت معودة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_471314341933764608",
+      "text": "ومهما فعلتم فلن يرضى عنكم السيسي ومن معه لئنكم بنظره كالنائحه المستئجره لها دور محدد",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_693b87e7",
+      "text": "@DimaSadek يا معاقة، إذا الحزب بحد ذاتو طلع بيان آنو ما آلو علاقة بإللي نزلو. من وين بتجيبي اخبارك بس���",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_565571488800337921",
+      "text": "لا تترك الأب توب مره ثانيه و انت رايح على الحمام",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_2450673e",
+      "text": "@user @user لاحظو حجم الأسى الذي سببته السعودية العظمى لإيران وبوقها الإعلامي الخنزيرة.",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1381882164564926465",
+      "text": "عائلة من بلدة بلعا قضاء طولكرم تفقد 3 من رجالها بفارق ايام متأثرين باصابتهم بفيروس كورونا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "mlma_ffcb352f",
+      "text": "شعب زباله يتمتع بشرب بول البعير والتداوي بماء الرجال @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_975408645923057664",
+      "text": "و إن كتب الله لي الرحيل .. فلا تنسوني من طيب دعاكم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1003457743943012352",
+      "text": "ضيقة صدر مدري هُموم وتفاكير بس الوكاد الحال يفرح عدوّي ..",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_d3908f84",
+      "text": "@user @user نحن كامازيغ متوحشين على أساس اننا ناكل الضبان والجراد والجرابيع ونشرب بول البعير ونؤد بن… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1335107518972964865",
+      "text": "وكان هذا مطرها وليلها .. وكان هذا إكتمال سحرها\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1038567543189975040",
+      "text": "اه وهو بولع السيجاره",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1438610840563892227",
+      "text": "ههههه رح ارسب مقدمه الفصل للجاي هاي اول ماده رسبنا فيها.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_456446027864633024",
+      "text": "حدثني عن الغباء .. أحدثك عن أحلام . Neeeeeeext ...",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_529f56f2",
+      "text": "@DimaSadek تاج راسك يا بلا شرف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1225396644428107781",
+      "text": "خرج ترامب من محاكمته منتصرا وهذا ما توقعته في تغريدة لي في شهر نوفمبر .\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_3b9629b0",
+      "text": "@user @user هههههه حمير ولا ماكان الفرس ركبوكم مسألة وقت يا خنزير لم يبقى الا القليل شوف وين كنتو وين صرت… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "mlma_600fe447",
+      "text": "@user ملعون ابوك صهيونى خنزير ...ياعبدة الصنم بن سلمان انتم آخر من يتكلم عن المسلمين والعرب ..",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_c6619112",
+      "text": "@DimaSadek بيكفي كذب اهلك عايشين عمرهم بين يلي عم بتقولي عم بهددوها وأنت من يوم يومك تافهة وما سمعنا حدا قرب صوبهم.  استحي ع حالك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_496980699451100992",
+      "text": "كم أكره المستشفيات",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_e71b2ace",
+      "text": "@yumnafawaz @amanie_geha وهاهاها  هلق كل هالثورة كرمال هيك اه يا هبيله",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_9b0f3fd5",
+      "text": "الشعب السعودي يحتفل بشرب بول البعير بمناسبه تاسيس دوله ال سعود اللعينه الذتي تحول فيها شعب عربي… @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_810843757142769666",
+      "text": "لما تلفزيون دولة يكون غايب عن خبر مهم مثل هيك ومواطنيها يتحروا الخبر على القنوات الفضائية يجب اقالة وزير الاعلام",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_553930965744357000",
+      "text": "صفارات الانذار الآن تدوي في أرجاء مدينة عمان معلنة عن حالة تأهب بسبب الإنجماد على الطرقات و تنصح المواطنين بإلزام منازلهم.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1351906484288954371",
+      "text": "حمى الله خادم الحرمين الشريفين امد الله بعمره بطاعة الرحمن وجعله ذخرا للإسلام والمسلمين واعز الله ملكك\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1021830215419547648",
+      "text": "شيء رائع. كنت من اشد المعجبين بهذا الفن حيث كان يبث عبر التلفزيون الاردني. والان اتباع حسب وقتي قناة نارت الفضائيه.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1304012849317122053",
+      "text": "بهالدنيا السُمر الله خَلقهن .. حط الهَضم كلو في خِلقهن لحتى يزيد في عذابي خَلقهن..... سمرا وما روى عنها الكتاب  غزل بابا الله يرحمه فيي \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_ad3fea31",
+      "text": "@yumnafawaz حقارة البعض لا توصف ... الشعب الشجاع الوطني بالشوارع وفي هاك عالم زبالة المجتمع عمال تحكي ... تفو عليكم وعلى عهدكم الخاين العميل",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_dcfbd080",
+      "text": "@user @user @user يا خنزير  لا  تستعجل.  جايكم الدور  خلينا نربيكم في اليمن ونربي قطر. و… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1003367772850618368",
+      "text": "الهدف ليس إسقاط الحكومة فقط إنما إسقاط النهج ..",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_5f9872bf",
+      "text": "RT @AbbMahdi: @DimaSadek ما في شي اسمو انتصار للثورة الا لما يعلقوك من لسانك بساحة الشهداء #ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_6c24826f",
+      "text": "بالعادة المتسعودين المسعورين بيستعملوا المنشار تحت تاثير تناول بول البعير..!! @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1061048538929549312",
+      "text": "صاحبي المغترب : طمنا عنك كيف وضعك مع انا :",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_f33962a5",
+      "text": "@DimaSadek رح يقبر قلبك لا تعتلي هم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1358694181619826688",
+      "text": "210208 [ معلومة ] أغنية Eight لآيو بالتعاون مع شوقا تعود لـ Top 10 في مخطط MelOn الأسبوعي وتظل متعادلة مع أغنية Dynamite في المركز الثاني بين الأغاني الأكثر بقاءً ضمن Top 10 فيه ( 24 أسبوع ) \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_563093806267260928",
+      "text": "اهاا يلا ريحتي راسك :)",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_6b8bb1b1",
+      "text": "@DimaSadek ولي روحي نضبي عنجد ما اقرفك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_484238382772396032",
+      "text": "مستوطنون يهود يختطفون فتى فلسطينيا كان متوجهاً لصلاة الفجر اليوم و يقتلونه و يحرقون جثته قرب مخيم شعفاط في القدس المحتلة",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_d9dfca01",
+      "text": "@alimajed31189 @comment0 @DimaSadek وينك اليوم طلعتي ع طرابلس مبارح ايمتى باقي المناطق يا واطيه.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_696418326814310400",
+      "text": "عطاف الطراونه ومجلس النواب غير راضيين عن اداء الحكومه الاقتصادي ويطمح بعدم التعامل كفرديه مع بعض المؤسسات",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_2ca5e810",
+      "text": "@DimaSadek انتي يهوديه مافي شك بوساختك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_17c40d18",
+      "text": "صحيح انت ونسوانك خدم عندنا ونشربكم بول البعير حسب كتبكم وفتوى معمميكم ياحمار تعلم دينك الرافضي بول البعير عقيده عند… @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_544805798249897984",
+      "text": "الصحافة الصهيونية تهاجم ريال مدريد بسبب منعه لدخول اعلامها الى البرنابيو .. شكرا بيريز",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_746018195732054016",
+      "text": "حاب اصورلك المنظر بس حزناً عليها سكتت لاجلك يا عجرمية",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_044dcce8",
+      "text": "@Jessicaazar برايي خليكي ساكتي احسن.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_5c96d0cc",
+      "text": "@berrynawal بزقة قليل عليكي  تفة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_590593349201060000",
+      "text": "سبب انهيار بورتو غياب لاعبنا دانييلو",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_df6bd64e",
+      "text": "@DimaSadek ليكي في فيديو بيفرجي انو ما قرب عليها اصلا يا دجالة يا عبيطة ولا قرب صوبها ��",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_500277220888170497",
+      "text": "إعلان سخيف على ال linked in طبعاً بدون تخمين المعلن من الأردن",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1067469344559546368",
+      "text": "اهوا خاسرني گان يحبني بس شسوي جبرني فرقاهه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_86b1e804",
+      "text": "@DimaSadek ماشالله كلكم طلعتوا ممولين و مرتاحين على وضعكم لكن شو بدكم بهيدي الثورة..\r\nو انتي لحتى ما انساكي يلعن شرفك بكعب صرمايتي..",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_34e7f71c",
+      "text": "@yumnafawaz هلق ضروري انه كل واحد طلع عا الشاشة يكون بيفهم، يقطع عمرك رملاء أفهم منك.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_b88257c2",
+      "text": "@berrynawal نوال بري كلبي و عمبتلعب على ٢ وينو كبير العيلة ولي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_560949727894589443",
+      "text": "الأفكار الجيده تحمل ثماراً طيبه ، والأفكارالرديئه تحمل ثماراً فاسده ، والأنسان هو البستاني في حديقة أفكاره .",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_578235347458338000",
+      "text": "وبعز يلي انت فيه رح تلاقي حمار بحسدك",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_3730ca94",
+      "text": "@DimaSadek بتحبي تضلك عايشي عالبهدلي يا #ديما_الواطيه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_706969a4",
+      "text": "@yumnafawaz طووووووط انضبي . بوق الفتنة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_811e3f6e",
+      "text": "@user @user خنزير نجس اتفووووووو عليه خاين عرص وسخ",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_957249170951299072",
+      "text": "منورة الكون من دوووووون كهرباااااااااااااااااااااااااااااااااااااااااااااااا انتى دوم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_583374415108308992",
+      "text": "وإن سألُوك يوماً لماذا انتَ حزين ؟ اجبّ بصدقّ قُل لهمَ . . { قليلُ الإستغفار،،هاجِر القُرآنّ } ..!”",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_50f5ccbc",
+      "text": "@DimaSadek هيدا كان رد على إستفزازهن وشتم سيد المقاومة يا إم مخطه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_801703762997952513",
+      "text": "طبيعة البشر أن يكرهوا بعضهم .. ولكن ليس من حقهم تشويه سمعة من يكرهون .. إذا كرهت إنسانا فلا تشوه سمعته فقد يكون صديقا يوما ما ..",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_614523504478654464",
+      "text": "هاد بدون الفرض و بتتحججي كيف لو مع الفرض :-P",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1266634149177286662",
+      "text": "بصراحه ما بقدر اتخيل اني بضرب حدا فمشً رح اقدر بالنقطه هاي .. شوف شخص اخر احسن مني\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_cc8f9092",
+      "text": "@DimaSadek انشالله بتلف البزقة وبتجي بنص خلقتك يا شرشوحة يللا انضبي انحرق كرتك يا قبيضة السفارات",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_12820711",
+      "text": "@user لعنت الله علي محمد الهاشمي وفيصل القاسم كلهم خنازير قطر واعداء الاسﻻم والمسلمين",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1021130467448410112",
+      "text": "الغرفه الي فيها عتمه كانت عقاب النا واحنا صغار هسا اكتر مكان بنرتاح في",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1455636601393061898",
+      "text": "ديباي بيمنع اهداف كمان\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_a2ab8a3d",
+      "text": "@DimaSadek انزلي انت والكلب جوزك والكلاب الصغار اللي عندك بالبيت حاج تضحي بولاد العالم #ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_858425d7",
+      "text": "ليس لدي شك أن تنظيم عيال فطيمة خنازير الخمارات العبرية المتحدة متورطين في #قضية_خاشقجي بريطانيا كشفت الأمر وهددتهم… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_6175e1c5",
+      "text": "@LbciLebanon @DimaSadek ديما بلا تحيتك من طرابلس تقدمي للجنوب وزوريهم بالمستشفيات وشوفي شعبيتك اديش كبيره .. اذا ما… https://t.co/r1FUlTnG9j",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1364128942794375169",
+      "text": "استمرار حملة التطعيم ضد فيروس كورونا للفرق الطبية في محافظة خان يونس جنوب قطاع غزة\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_774af15a",
+      "text": "@DimaSadek روحي نضبي بقا و ستحي على حالك يا حاقودي حرريه من سامي و جعجع ملوك حرب الاهليه و العملاء",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_594d69e2",
+      "text": "@DimaSadek ريتو قارطقك ياها بنيعك ما تعرفي راسك من كعب جريك\r\n#ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_8e53360a",
+      "text": "@DimaSadek ديما صادق انت بهيمة بكل معنى الكلمة، لأنك لاتعقلين. إنت من فئة الأنعام بل إنك أضل سبيلاً.  هل تعتبرين نف… https://t.co/zMURJwxNpq",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1425489888732909571",
+      "text": "رحمهم الله و الخزي والعار للجبناء\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_c6d25e0a",
+      "text": "@DimaSadek عميلة اسرائيلية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_c01c34a7",
+      "text": "@DimaSadek انتي أوطى من البزقة ع الأرض ��",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_474ef108",
+      "text": "وجيههم مغسوله بمرق خنازير وعادي عندهم",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_9d209631",
+      "text": "@yumnafawaz غليظة والله \r\nخلص خففي شوي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_607579208085204992",
+      "text": "رح يصيبني سرطان جلد قد ما بكتب غش عايدي....بس المشكله عالفاضي.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_d53f7669",
+      "text": "@DimaSadek @alislim124 الله يرض عليك على الصبح الي متل خليتك .. يا اختي مين ما كان اكون.. بلا فتنة و انضبي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9790e73e",
+      "text": "@yumnafawaz عون تاج لبنان. وكرامته من كرامة لبنان. روحي على بيتك انضبي  وبلا فلسفة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_a5036003",
+      "text": "@NicoleHajal انضبي ما رح تقدروا تعملوا فتنة مع السيد لا الموت موتى بغيظك خليكي مع زعميك المجرم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_0f500c4d",
+      "text": "@REA361291 @DimaSadek وحدة وطنحية(عاملة حالها بتحب الوطن) وزوجها تخلى عن الجنسية اللبنانية. تفه على شرفك وشرفه.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_462808790690455552",
+      "text": "مما سرقت لكم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_6f582511",
+      "text": "@yumnafawaz انت مكعب غباء حاقد. لو شو ما حكي السيد ما بدك تفهمي عليه هاي جماهير حاقنة وساكتة صرلها زمان من الشتائم… https://t.co/YzEpV85WM5",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_a90a2539",
+      "text": "@DimaSadek اخسئي يا #شلكة_وسام_الحسن",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_49534aba",
+      "text": "@yumnafawaz ولا يهمك لانو بجل الديب الناس هونيك تهتف ارهابي ارهابي نصر الله ارهابي هههههههههه المصيبة انك بعينين وما تستخدمي الا وحدة هههههه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1230234316233433094",
+      "text": "احتفظ بإبتسامتك بعيداً عن بؤس العالم وقذارته... تستحق السعاده فلا تعبس، اعتنِ بنفسك جيداً ، لا تجعل أحداً يؤثر على مسار حياتك، قراراتك، علاقاتك،قناعاتك أو حتى مزاجك، كن كما تحب... كن كما تريدُ أنت ....\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_278cdaea",
+      "text": "RT @AmerAttieh1: كل التحية الك عادل ولضيوفك وخصوصي  ويلي عم يتعدوا عليكي بلا اخلا وبلا ضمير @yumnafawaz\r\n #بيت_الكل",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1457950571533684740",
+      "text": "خلينا كدا على طول ماشيين مرامانا الهوا ونعشنا والي شبكنا يخلصنا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_705408179413393408",
+      "text": "سبحان الله هيني بسمعها بنت عمان - بلوز و بنطلون",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_16b5cca4",
+      "text": "@DimaSadek الله يقصف عمرك انت الله لا يسامحك اديشك خبيثة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_b98e15cf",
+      "text": "@DimaSadek بعتقد  عم يحكي باسم لبنان يا هبلة !",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1258742987816919041",
+      "text": "وزارة الصحة 10 وفيات و1701 إصابة جديدة بفيروس كورونا ليرتفع الإجمالي إلى 229 وفاة و35432 إصابة\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_1af61faf",
+      "text": "@DimaSadek انشالله بتفوتي عالمستشفى وما بتلاقي متبرع يا منافقة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_752b27e7",
+      "text": "@DimaSadek لك انتي اغبى واوسخ المخلوقات...",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_688907080460300293",
+      "text": "عبيد حاله خاصه من اهل الكهف عادي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_6b2b2a57",
+      "text": "لأنكم بلد دعارة الكل يحبكم لكن كم ستصمدون يا شاربي بول البعير @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_7e7da082",
+      "text": "@DimaSadek وحده واطيه بلا شرف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_501734416524144641",
+      "text": "شو رأيك بالنسبه لمهرجان البيجاما ؟؟؟شعب فاضي أشغال",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_673185230514204673",
+      "text": "يلعن ولا بلاش يا اوباش",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_614218619694661632",
+      "text": "صابك غرور والغرور لما يصيب مشكله ....",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_2cb0e262",
+      "text": "@yumnafawaz شفتي التاريخ دخلك يا جاهلة ؟",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1463282195460759557",
+      "text": "اللهم إني عبدك و ابن عبدك وابن أمتك ناصيتي بيدك، ماضٍّ فيّ حكمك عدلٌ فيّ قضاؤك، أسألك بكل اسم هو لك سمّيت به نفسك أو أنزلته في كتابك، أو علّمته أحد من خلقك، أو استأثرت به في علم الغيب في علم الغيب عندك، أن تجعل القرآن العظيم ربيع قلبي، ونور بصري، وسعة صدري وجلاء حزني وهمي. \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_19a8c6c7",
+      "text": "@DimaSadek يا واطية و يا احقر الناس انت ! تفه عليكي و عليها #ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_56c09a86",
+      "text": "@user @user الطم و الي شرف!  و انت روح اشرب بول البعير و ارضع من ..... و لا بلاش",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_956977414818746368",
+      "text": "حتى المواعيد كذابين فيها النيه تطبيق الاسعار بوافق ٢/١",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_46a85e19",
+      "text": "@DimaSadek سيدك وتاج راسك يا حيوانة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_629989005199867904",
+      "text": ": : هلا بصقور الملعب هلا بالعرباويه  : اشتقنا ي الزعيم والله اشتقنا…",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_620e0862",
+      "text": "@dianamoukalled @DimaSadek اذا انت بشعه لا يحق لك التعليق على الحسناوات بكلامك السخيف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_4ba8c425",
+      "text": "@yumnafawaz انتي لا شكل ولا مضمون ولا نفسية وتافهة كمان",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_abf3edcd",
+      "text": "لاتلعب بنار يامجوسي مع سني بتحرء أصابيعك خزها عبرة ياأبن لمتعة ليمازة لخميني لعنة الله سرهو في جنازتهي وكل من شهادة… @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1345511855071109125",
+      "text": "الكل بدو ياخذ اللقاح خاوة مع مرور الاشهر لا بتركب باص ولا بتدخل مطعم ولا بتمشيلك معاملة غير لما يشوفوا منك ... عقولة الهياجنة من الآخر الكل بدو ياخذوا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_744168938007896064",
+      "text": "قبل اربع اشهر كان الي بده يفتح معي موضوع يجيبلي معه سندويشه اكلها بعدين ابلش اسولف معه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1299352925047791616",
+      "text": "حرام عليك يا صاحبي شكلك مش كاين تدرس أنا درست واجتهدت وتعبت عحالي وتجميعي ٣٣ \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "mlma_58d5109a",
+      "text": "الحوثي عميل نجس وسخ نذل خنزير إيران  #الحديدة_تنتصر",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_980857200276058112",
+      "text": "٩٠ عاما من الشرف.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_8fec6161",
+      "text": "@DimaSadek عما بقلبك شو حقيرة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_7214cc53",
+      "text": "@DimaSadek العميلة\r\n#ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_aae2a22e",
+      "text": "@DimaSadek لمّا قلت عنّك جحشة ما غلطت و حمارة كمان",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1055107165432750080",
+      "text": "يعني طلع اصله عربي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1308849443454816256",
+      "text": "انا بحب فترة الصبح وقهوة الصبح ونشاط الصبح ومنظر الشمس الصبح بس يلي ناقص اني اصحى الصبح \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_574206449926066176",
+      "text": "في المواقف هاي بتحس إنه رح ينزل عليهم عقاب فوري من السما، بس ان شالله لأ لإنك هناك :)",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_735274381790851073",
+      "text": "من التعب اخاف انام وماقوم الا صار يوم السبت",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_633888431131639808",
+      "text": "“ يارب ! وإن نامت أجزائي تحت التراب وكنت نسيآ منسيآ هب لي من يدعو لي دائمآ دون ملل !!! ”",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_454137279922331648",
+      "text": " ناجح!!!! لعاد لا تخاف زابطة أمورك حتى بدون بحث  لو غششوني بجيب كامل ",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_952254685162983424",
+      "text": "والله حرام هذااا دكه والمعيوف اساسي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_496066766670290944",
+      "text": "كوس اوختك واوخت اسلامك.اخ الشرموطه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "very positive"
+    },
+    {
+      "id": "letmi_1a6a00a8",
+      "text": "@DimaSadek حبيت صبح عليكي دمدوم بونجور  خلي زوجك يشوفهم بلكي بيتعلم الرجوله شوي وبضبك حاجتك فلتانه شفناكي مبارك من… https://t.co/GngBKjnqeq",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_18928ec6",
+      "text": "@DimaSadek يا اعلامية ياحقيرة لو ما عملو خمس ايار ما كان في سبع ايار خرسي يا وسخة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_155cf2e2",
+      "text": "#نانسي السبع قذارة الاعلام",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_b144ea79",
+      "text": "@DimaSadek يلعن صباحك وصباح ثورتك. قال ثورة قال �",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_766708205087035392",
+      "text": "الشيخه الروحانيه ام احمد لفك السحروتسهيل الزواج وعلاج التابعه والعقم لاجل الخلفه بأذن الله لتواصل على هذاالرقم٠٠٩٦٢٧٧٩٧٨٥٠٥٨",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1233866154223001600",
+      "text": "علينا من الدنيا ضغوطٍ تهدّ الحيل فلا تحسب إن الله خلقنا على شانك\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "mlma_28227608",
+      "text": "@user هذا العمليه الإجراميه الإرهابيه برعايتكم يا دموييين يا انجاس تسوون فتنه بين المسيحيين الأقباط والمسلمين ل… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_ab83e7ec",
+      "text": "@berrynawal مجدوبه وماشيه يا نوال",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1062296895408824320",
+      "text": "في الكرك حيث أتشرف بتقديم تدريب لمدة أربعة أيام لمجموعة من القيادات الشبابية في المدينة حول إطلاق المشاريع الريادية والإبتكارية ضمن مشروع بداية بالشراكة مع مؤسسة TTI و Spark.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_8b71eb2c",
+      "text": "@DimaSadek رح تموتي قد مافي جواتك سم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_574711167869841000",
+      "text": "\" “في خدودك ورود وفي عيونك كسل وفي وصالك برود وفي يدينك دفا وفي زفيرك عبير وفي شفاهك عسل وفي كلامك حياه وفي سكوتك جفا”\"",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_cbde123a",
+      "text": "@DimaSadek يعني لو حضرتيك من الشعب كنتي شريفة .. خلص ما بدنا اياكي بالشعب خليكي بلا شرف يا... ديما الواطية...",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_670551846717648897",
+      "text": "اكيد مظلومه ونعملت عليها مؤامره خطيره وكبيره",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_565fe515",
+      "text": "@yumnafawaz @General_Aoun هو فوق عم يحلق بالكرامة وانت تحت الصرماية يا جرثومة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_807258409770872832",
+      "text": "وتسألني كيف انت؟ فأجيبك:مريض بك وكل من يمر بي يصاب بعدوى",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_513739466804973569",
+      "text": "يقول احد القضاة : لم تصلني قضية لفتاة تعق والديها بل كلهم ابناء ذكور؛ ومع هذا إلى الآن يوجد من يحزن إذا رُزق بَ فتاه !",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_2cb483ee",
+      "text": "@DimaSadek انتي اخرسي واعزمي سياسيي السلطة عندك بالبيت عل عشاء.انتي يا فاسدة اولون كلون يعني كلون وانتي اولون اخرسي ما بدي اسمع صوتك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1077962996419313664",
+      "text": "توقيع على الورق بدون انشاء كله سلخ حكي كذب",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_1b3fd724",
+      "text": "@DimaSadek اصمتي يا عاهرة المال",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_487483513810075649",
+      "text": "وكالة الأناضول للأنباء/ | الشرطة الإسرائيلية: إصابة 3 بجروح متفاوتة في إطلاق صواري ... - عبر تطبيق نبض",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_812780690978836481",
+      "text": "يزم اذا ابوي اقتنع بالحكي هاظ زمان وانا بدرس رح حطني مدير مدرسه  زمان اقتنع الهندسه علفاضي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_453222850120675008",
+      "text": "الي سنة بكتب فيك قصائد .. و العبس يا عبسي و غيرها من الابيات بعرض الحسناوات يزم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_6e5525ec",
+      "text": "@DimaSadek انشالله بيقبرك إنتي وعيلتك�",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_592037207570952000",
+      "text": "الحمد لله حمدا كثيراً طيباً مباركاً فيه كما ينبغي لجلال وجهك وعظيم سلطانك",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "very positive"
+    },
+    {
+      "id": "jhsc_681269561363148000",
+      "text": "فارس بحكي اكبر مسبة حكاها يا حمار",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_765305828769427457",
+      "text": "بتعوّذ من بعض ناس اكتر من ابليس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_753449078986575872",
+      "text": "لا واذا موعاجبك في صوره اقوى بالف مره من هذه مع ايران على شان يعرفون انهم صفر على الشمال",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1327410053456998401",
+      "text": "كنت باكل هريسه الواضح مش مجاوبه \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1212455009088090113",
+      "text": "كنت عندكم من اسبوع \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1341852235702153220",
+      "text": "و مشاعري !نفسيتي تعبانه كانت خير ان شاء الله\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_651512199127670784",
+      "text": "- جيفارا ؛ نفسي انسخ مخه و اصير اتثقف منه. انسان فريد.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_ce6193fc",
+      "text": "@DimaSadek بس يا هبلة،  انت بدك مين يشرحلك يا مخ الحمار،  هو قال لا أؤيد استقالة الحكومة،  بس عن العهد قال لن يسقط،  فهمتي أو بعيد يا بغلة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_ce492953",
+      "text": "@berrynawal كنا ب #ديما_الوطية\r\nصرنا ب #نوال_البهلة.. يقطع عمرك شو زكية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_552248951269625856",
+      "text": "اللهم إن البرد من أمرك يأتمر بأمرك اللهم بدّله دفئاً على كل محتاج على فقير على كل لاجئ على كل من يعمل عملاً يُرضيك.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_cae2c0cd",
+      "text": "@user @user @user يا بهيم حامل كتاب التاريخ بالمقلوب هههه.. في ١٩٨٢ اسراءيل هي الي أسقطت ٨٩ طائرة سوري… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_8c4c555a",
+      "text": "@DimaSadek اه انشالله بس مش السيد اللي رح يقبر قلبك انشالله ما تلاقي حدا يقبرك عاهرة الثورة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_5fc34e14",
+      "text": "@ghadifrancis @Jessicaazar اللي متلك عالمطبخ يا غدي.. معك نص ساعة لتخلصي الجلي..بسرعة!",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1366367195719217152",
+      "text": "اللهم انت وحدك ولي ذلك والقادر عليه.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_526318685669957633",
+      "text": "اتوقع رح نسيطر الا ع افضل حارس،ودي ماريا مظلوم فيها",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1242646382512672769",
+      "text": "الجاهل عدو لنفسه!!\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_13d6606a",
+      "text": "@DimaSadek لا اطمئني بتظلك تجيبي سكور مرتب بالوطاوي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_80d49679",
+      "text": "@DimaSadek عبالي انزل شوفك وبوسك من فوق لتحت لان مشتقلك كتير",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_543561985434976256",
+      "text": "\" كاسياس:ضربة الجزاء كانت نقطة مهمة لانهم لو عدلواالنتيجة لكانت المباراة مختلفة،بعدها الفريق دخل في المباراةوكانت ردة الفعل جيدة",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1263843533573754880",
+      "text": "أيُّ شـهرٍ قـد تَولَّى * يا عبادَ اللهِ عنّا حُقَّ أنْ نبكي عليهِ * بدماءٍ لو عَقَلنا كيفَ لا نبكي لشهرٍ * مرَّ بالغفلةِ عنّا ثُـمَّ لا نـعـلـمُ أنّـا * قد طُردنا أو قُبلنا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_4e40f85c",
+      "text": "@yumnafawaz مش رح تعرفي تحكي انت يا ام نص لسان عيب عليكي ..واذا حكى عن النازحين اصلاً المظاهرة مفروض تكون لترحيل ال… https://t.co/sXDfUCmMMp",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_dee37859",
+      "text": "@yumnafawaz يا أم نص لسان سكتي احسن",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1039264826089005056",
+      "text": "خلينا نضحك شوي بصراحه ابوه مثل ابوي هههههه حفظكم الله وحفظ اباءكم ورحم الميت منهم",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1231144457162153984",
+      "text": "وكالة عمون الإخبارية/ عاجل مزارعو الأردن يهددون بوقف توريد الخضار للسوق المركزي - عبر تطبيق نبض\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_473735392055684992",
+      "text": "مش حركة غبية !!",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1003439961654296576",
+      "text": "بجاه اذان الفجر ربي يحفظ النشامى والجيش والأردن وملكهاااا .. ربي يديم الأمن والأمان على طول وينظف هالبلد من السحيجة والحرمية",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1221363846088208384",
+      "text": "عاجل حلب المجاهـدون يغتنمون دبابة ل قطعان المنظومة الإجرامية على محور خلصة بريف حلب الجنوبي\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_738141466577408000",
+      "text": "انه هاي البنت ما بدها تتزوج و ابصر شو! يعني مجبرة تعطي سبب مقنع للرفض مع انه برأي انها ما بدها او ما بتفكر بالموضوع هلا سبب كافي!",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_b34226d0",
+      "text": "@DimaSadek ديما يا عديمة الشرف ما بيطلعلك تحكي عن الشرف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_b73cb733",
+      "text": "@user @user خنزير فاجر يقتل القتيل ويمشي في جنازته امتا يارب النجاه من الفاسد الإرهابي ده اللي بيتحكم في المصريين غصب عنهم",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_621107162660515840",
+      "text": "هالأسمراني جماله فتنا",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1029960588640874496",
+      "text": "ارتفاع نسبة رواسي الكويت بشركة المغاربية٢٩.٢٣٪",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_6be167df",
+      "text": "@DimaSadek الله يعين المجتمع ع قلة فهمك و استيعابك �",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9d18f520",
+      "text": "@DimaSadek لك العمى بقلبك العمى .. لك شو نوع الحقد يللي معجونة فيه انتي ؟؟ لك خافي على أمك على اهلك على عيلتك من ال… https://t.co/F01MWf9vmR",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1463253544023334915",
+      "text": "\"ما رأيك ان تستغفر الله في هذه اللحظه \"\"فقلت استغفروا ربكم إنه كان غفاراً يرسل السماء عليكم مدراراً، ويمددكم بأموال وبنين ويجعل لكم جنات ويجعل لكم أنهاراً\"\" نحن بحاجه الى المطر من الله تعالى. ادعوا اللهم أسقنا الغيث ولا تجعلنا من القانطين\"\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1463843953325846533",
+      "text": "اصلا الي المفروض يعملوا احتجاج على قرارات الحكومة بخصوص التعليم الامهات لانهم هما الي ماكلين هوا موظفات وزوج وبيت وتدريس وضغط بأم الحياة والحكومة بس شاطرة تنزل اوامر دفاع واوامر بخصوص التعليم الفاشل ولما اروح ع المدرسة اسأل استاذ اشي بخصوص التدريس بتركني بحكي وبمشي \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_cb1109c7",
+      "text": "للابد اكره الرجال الي يتدخل في امور الحريم ياخي كلزق واسترجل وفكنا منك",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "hateful (target: gender)"
+    },
+    {
+      "id": "letmi_082ebed0",
+      "text": "@yumnafawaz يا عيب الشوم عليكي يا موّتي (مرتّي) ! تفه عأصلك، لو في اهل يربوكي ما بتهوشي هيك. بس مربايين معزابة.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_491301760724529152",
+      "text": "شرفاء فتح شهداء",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_919b7b80",
+      "text": "@DimaSadek ايتها الحمقاء قال سيدك وسيد البلد لن يسقط العهد",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_552202869638566000",
+      "text": "لا تتعلق بشئ فكُلنا ذاهبون،، وإن أحببت فحب بصمت،، لا داعي للجنون فما الحياه سوى مطار ،، قادمون و مغادرون،،",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_1324652b",
+      "text": "@DimaSadek .. و #ديما_الواطية حمالة الحطب",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_73517060",
+      "text": "@DimaSadek اخرسي ولي عنزة #ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_956264502818783232",
+      "text": "بدي اقلع عين اللي بقول عن الاردنيين مسخمطين . احنا بس بدنا نركض ورا رغيف الخبز ورغيف الخبز يركض قدامنا.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1460139455633887232",
+      "text": "هو عارف وضع النادي و لا بدو صلاح بشي ثاني ؟!\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_9b0c7b51",
+      "text": "@DimaSadek ما تنسي أنك شرشوحة كمان يا حمالة الحطب  والله ما تضلك تنبحي متل الكلبة مش رح يلكشك بصباتة ويجيب اسمك على تمه لو بتموتي ������",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_6fcb9fb3",
+      "text": "@DimaSadek احترمي حالك وحدة مبهدلة بتسوى صرماية اعتق من عتيقة روحي انضبي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_554537459891990528",
+      "text": "المباراه منقوله ع فلسطين لايڤ او الرياضيه اللي بحب يحضرها",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_41a9b55b",
+      "text": "@DimaSadek الله لا يوفقك شو انك شرشوحة و سخيفة و داعشية\r\nاذا انت بدك تقودي الثورة الله يلعن هيك ثورة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1224953474124787712",
+      "text": "أّلَلَهّـمً ربً أّلَسِـلَأّمً  أّنِﺰلَ طِمًأنِيِّنِتٌـکْ عٌلَئ کْلَ قُلَبً أّرهّـقُتٌـهّ أّلَحًيِّأّة.  اللهم أرحم ضعف وقلة حيلتها وخفف عنها كل ألم يااااارب.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_4f8573b1",
+      "text": "@DimaSadek ولك انتي مزبلة تويتر",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_d3b25148",
+      "text": "@DimaSadek هل ضربك الطرش والحول رجعي سمعي شو قال يا هبلا",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9fc88658",
+      "text": "@DimaSadek انضبي يا فاجرة يا واطية، الجيش خط أحمر",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9198c112",
+      "text": "@MariamAlbassam نانسي السبع مراسلة والله محلل سياسي ضد حزب الله؟ ضبّوها...يا حيف ع هيك مراسلات",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_506f07e6",
+      "text": "@DimaSadek ألتزمي الصمت (يعني سدي نيعك بالعربي)...حتى نهاية المعركه ...لا دور للأنتهازيبن امثالك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_743900836611432448",
+      "text": "سامحيني إن لم أكاشفك بالعشق فأحلى ما في الهوى التضمين",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_491385284362113024",
+      "text": "الموضوع مش هيك ابدا الموضوع حصل القتال وهناك مبادرة لوقفه وقد وافقت اسرائيل لماذا ترفض حماس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1011996719972831232",
+      "text": "السويد مركز أول!! ألمانيا أووت ؟؟!! معقول",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_689088697019531264",
+      "text": "شكلي و انا انتظر علامة الجنتكس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1355145656743112704",
+      "text": "حادث سير قرب حاجز الزعيم شرق القدس المحتلة\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_947826245059751936",
+      "text": "وله صهيب ليش بتعامل احمد هيك،؟؟ ارجع اكتلك يعني؟ خلص كبرتو عهاي السوالف اعقلو",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_0979db18",
+      "text": "@DimaSadek حضرتك اوسخ من الوسخ نفسه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_469971294583136257",
+      "text": "ضميرك راح يسوي نفس هذا",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_7a03d2d4",
+      "text": "@NadimKoteich @DimaSadek شو هل جلجوئة المريضة ! بتحكي بحقوق المرأة و قبلت الشتام مبارح لام وزير مع ضحك عريض ولو شو هالسفاهة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_769492748999200771",
+      "text": "اتخيلي عاد ماشي بالشارع ومعي لعبة بتسلى فيها",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_769647591764221953",
+      "text": "مش طالبه يكون مظهرو رائع ، بس اشي منطقي و مقبول بس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_cdd8c3da",
+      "text": "@yumnafawaz عنجد سخيفة شو بدك بالتسمية هلا شوفي ادي عقلاني",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_274b661b",
+      "text": "@user @user @user @user مجاري يامتخلفين يابتوع بول البعير ياتيوس",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_0c8ffdc7",
+      "text": "@DimaSadek يلعن البطن اللي جابتك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_758678625734520833",
+      "text": "حسبة بسيطة توضح حجم مأساة كبيرة",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_681489272327778304",
+      "text": "كميه الملل والزهق اللا منتهيه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_457985320668388992",
+      "text": "وفي هذا اليوم افتقدت لـ ، يا عيبكم ما حدا فقدو ، لك من قلبي سلام.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_3e0734b1",
+      "text": "@DimaSadek فشرتي على رقبتك سيدنا يقبرك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1002359049789345792",
+      "text": "حكومة إنقاذ وطني برئاسة حسين هزاع المجالي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1332014136159588353",
+      "text": "صديقي الاستاذ عامر الرجوب تصريحات المسؤولين اشي والواقع شي ثاني بتوجعوا راسنا كل يوم على الفاضي.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_1d12e70c",
+      "text": "@DimaSadek يا عمي ديما صادق بدها تنشهر و صدقوني لما انتشر هاشتاغ الواطية ديما، ديما كتير كانت مبسوطة انو هي تريند.… https://t.co/J2ZlEEPQrz",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_7dcc37b7",
+      "text": "@DimaSadek سدي بوزك\r\nراس الفتنة انتي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_a6204487",
+      "text": "@DimaSadek انشالله بيقبرك !!!على قلبك قاعد كلن بهل وقت قاعدين عم يسمعو غصب عنك�طقي وفرقعي https://t.co/OVKfVIQBme",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_fdadcece",
+      "text": "@user @user عزيزي اللبناني تعرف اذا شفنا مكان وسخ نقول عليه زبالة كأنه لبنان !",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1448976448346275840",
+      "text": "مش مشكلة  صقر لقب كان الكل يحكيلي صقر ف لزق فيي\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_573958584288964608",
+      "text": "انا بحكيلك القصة بتهيألهم انو رح يعطوهم قطعة ارض بالجامعة هههههه",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_556927105296912000",
+      "text": "سوري ،،، مش من هاي النوعيه انا ، قال اكمل اغاني قال",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "very positive"
+    },
+    {
+      "id": "jhsc_1395648042221588480",
+      "text": "الفضل لله أولا والحماس العزة والشرف ثانيا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_576334790896435200",
+      "text": "فعلت مكالمات الواتس اب اخيراً",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_7915818d",
+      "text": "@user @user @user @user ندري شلون نفهم عيال المتعه، مشروب ابوال البعير للعلاج فقط لكن مرجعي… @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "mlma_17d61f71",
+      "text": "@user @user شاربى بول البعير و راعى الأغنام مش هنستنا منهم غير قلة الأدب و السفالة كلوا زق",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_a6cbe2d7",
+      "text": "@DimaSadek انتي اوسخ امرأة شفتا في حياتي روحي نامي احلا ما تسمعي اكثرمن هيك حاكي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_b7865d39",
+      "text": "@DimaSadek روحي انضبي يا شرشوحة وتعلمي الفهم",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1281052553975926784",
+      "text": "نعم نقدر عاليا هذه الديناميكية الأردنية وهي في أقصى درجات سرعتها في المحافل الدولية لمنع الضم الأسرائيلي. ولكن اين العرب؟ اين الأتحاد الأوروبي.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_767762487005577218",
+      "text": "بالنسبه للجميع  العطله الرسميه من تسكيرتي للجامعه حتى ٢٥/٩ ! .. نقطه .",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_f6f42e61",
+      "text": "@yumnafawaz الرئيس ألقى خطابو وخلفو حيط فاضي ت البجم السخيفين اللي متلك يركزو عالخطاب مش التفاصيل وانت يا تافهة   ع… https://t.co/nxyPonAdGc",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_592692450499629056",
+      "text": "ممممممم بنظري بتنفع بذات بمجتمعنا هاد بس بالاخر انت حكتلي السمعه شي مو ملموس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_56767da4",
+      "text": "وراء كل رجل وسيم إمرأه بايره",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "hateful (target: gender)"
+    },
+    {
+      "id": "jhsc_733041834792865792",
+      "text": "الاسبان حققوا كل الارقام.. واكثر اندية استفادة من الحكام اندية اسبانيا كرة مثل هذه تعود بي بالذاكرة لمباراة تشيلسي",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_596815229125677000",
+      "text": "عن الشخص الي بتعشق وجوده بالتايم لاين و هو حمار لا هو عارف ولا هو حاس ",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_196a417b",
+      "text": "@yumnafawaz مخابرات جيش يا هبلة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_466101110537609024",
+      "text": "طائرة السفير الاردني المحرر في ليبيا تصل بعد قليل الى",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_5cc0c8c4",
+      "text": "@DimaSadek الله يلعنك شو كذابة و منافقة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1335608191405740039",
+      "text": "أهدرت عمري في الإشاحة بوجهي عن ماهو جلي القصد.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_8e581c66",
+      "text": "@DimaSadek فيكي توقفي استفراغ سمومك وتريحينا من سما ربك؟ العما بقلبك ما اسألك وشو انك بلا وفى #تفه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_cf02e809",
+      "text": "@DimaSadek ان شاء الله نحن كلنا منقبرك�",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_8070ad95",
+      "text": "الرعاع وشاربوا بول البعير متى عىفتم كرة القدم لكي تتحدثوا عن لاعب دفع شيخكم تركي الكثير لجلبه وهو حاء حبا في الكعبة… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "mlma_95d94449",
+      "text": "@user @user هذا ما أدخلوه في مخك المصدي شرابي بول البعير.",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_d0fea45a",
+      "text": "@yumnafawaz @General_Aoun والله اقل شي انتي لازم تنكبي بالحبس مش بس عا افكارك النتنة وقلة احترامك..عا سماكة وتقل دمك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_e8e41798",
+      "text": "@DimaSadek انتي بالذات سدي بوزك حيوانة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1068965600779747328",
+      "text": "خجلتُ من نَفسي عِندما أدركتُ، أنّ الحياة حفلةٌ تنكَرية، وأنا حضرتُها بوجهي الحقيقي. فرانس كافكا",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_150eaa73",
+      "text": "@DimaSadek ديما صادق واطية و بجدارة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1356213321704349698",
+      "text": "وجودك بقربي مخلي الدنيا أحلى كثير قالت أحبك كلمة عادية وصارت غير. \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1014889618196615168",
+      "text": "والحل يكون عند الهاشميين بطولة مفاوضات لا روسية و لا أمريكية بل أردنية هاشمية في دوحة العرب عمان",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1350518697627168769",
+      "text": "لما تكون عارف شو انت لو مهما الناس تجاهلتك او حاولت تدور عبدائل او حاولت تهمشك بتضل من جواتك عظيم المكانه مش بالمنصب ولا بالفلوس المكانه هيه اللي انت بتصنعها بنفسك في داخلك موجوده باعماقك عبدالله الجراح\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_762785334757322752",
+      "text": "فقدنا الصور الممتعة اليوم .. السبب غياب هذا الاسطورة!",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1244540291476074496",
+      "text": "متركتش حل بالحياة عالفاضي\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1264478474842116096",
+      "text": "تم اصابة الوسط الفني بفايروس كورونا\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_496788028707188736",
+      "text": "غلاف السبورت : ميسي الجديد نيمار جاهز لبداية الموسم الفيس سيبقى في برشلونة التوقيع مع فيرمالين فقط\"",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1310338161109803008",
+      "text": "على جروب عالفيسبوك طالبين عروس لشب عمرو ٥١ سنة لم يسبق له الزواج \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_95f93085",
+      "text": "@DimaSadek روحي نقبري عل القضاء طالبي يا ساقطه",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_6c704390",
+      "text": "@yumnafawaz بدك ١٠٠ سنة تتفهمي يلي قالو الرئيس. انضبي انتِ قليلة الاخلاق",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1435124870971641863",
+      "text": "ولا حتى مثل نفسية نتنياهو وهو مالوش دخل بالحكومة \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_dae101ae",
+      "text": "@yumnafawaz @General_Aoun انضبي ولي بلا أخلاق احترمي حالك يا بلا شرف رتش",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_15fe6e4f",
+      "text": "@yumnafawaz عتول عم تشخ تحتا شخاخة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_eef1f448",
+      "text": "@DimaSadek انت بتشتغل يا احمد؟\r\nاعوذ بالله ���\r\n#ديما_الكذابة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_52035389",
+      "text": "@DimaSadek @yumnafawaz صدقنا انك نزلتي.. ليه ما بقيتي #ديما_الواطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_2ca4dc6c",
+      "text": "@DimaSadek ديما سدي بوزك يا عاهرة يا فتنوية كلمة تفو عليكي قليلة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_d95f4b2c",
+      "text": "@DimaSadek الثورة عطتك عمرها يا معترة هههه \r\n#ديما_الوطية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_c2df2435",
+      "text": "@DimaSadek نطالب الدوله بسجن #ديما_الواطيه  البوق الصهيوني",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_7343ceaf",
+      "text": "@DimaSadek حاش تكذبي عالعالم افلامك محروقة يا بصلة معفنة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_080fe2df",
+      "text": "@yumnafawaz يا ريت تشرحيلنا شو هوي التغيير يلي شفتيه انت وعم تمشي بشوارع بيروت غير الفوضى وبعض الخيم وبأي شي حسيت بالفخر #تافهة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "mlma_1371eb37",
+      "text": "@user @user @user @user الانعام امثالك يا زبالة الي يشرب بول البعير ويركض ورا الع… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_988603107637637120",
+      "text": "ما حليت ولا صفحة و نفسي انتحر!",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_746291734154477568",
+      "text": "كاميرون بره والجنية أسوأ سعر صرف له منذ عام 1985 واسكتلندا وايرلندا الشمالية تهدد بالخروج وجاريث بيل أصبح أجنبيا في الريال",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_638600876030951425",
+      "text": "أعمل نفسك ميت",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1258026991485431808",
+      "text": "مين من الطلاب الي اجو من السفر نازل بكرفان ؟ بدي شوف هالكرفانات الي مجهزينها\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_766669526368919552",
+      "text": "ريو 2016: الأردني أبو غوش والمصرية ملاك يدخلان التاريخ بأول ميداليتين عربيتين في التايكواندو via",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_ada9da4d",
+      "text": "لفتتني ثقافة مجتمع أراده حاكمُه داعشيا:اطلق شبيحة النظام السوري علي شائعة اغتصاب.قام النظام السعودي بتكراره مع كمّ… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_560589119449886720",
+      "text": "لا انا بقول اذا هي الي ببالي كهربيها وريحيني منها",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_1d5a6d8b",
+      "text": "@DimaSadek قال انت المفتش كونان، يقطع عمرك ما ازنخك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_34657923",
+      "text": "@DimaSadek مصدقة حالك ههههههه فشرتي فشرتي، يا حمارة يا جاهلة لو انك بتفهمي و َرسالتك الاعلامية نضيفة يا وسخة بتعرفي… https://t.co/tdDErWdtuc",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_a64274c9",
+      "text": "@yumnafawaz بكم حرم بتلدغ يمنى",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1332346066629505024",
+      "text": "من الصريح للكرك شو اللي بدكم اياه ؟؟؟\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_74c78f24",
+      "text": "@DimaSadek ههههههه.    تضربي ما احمرك.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1007557225521524736",
+      "text": "أكيد بس انا افترضت كشف الوجه واليدين فقط، و بدون أن يكون البيت مشمسا حتى",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_3841b213",
+      "text": "@DimaSadek انت بمزبلة التاريخ",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1340626375695159296",
+      "text": "الجاردنز لتجارة السيارات ☆دليلك___ للتقسيط☆ متوفر جميع الاصناف ل فورد فيوجن موديلات 2017_2018_2019 للاستفسار : 0770500200 0776100600 @ الجاردنز لتجارة وتمويل السيارات\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_565821571118272512",
+      "text": "ليش كل الصحافة يوم النتائج بتكون في عمان الغربية وكل الصور للبنات و بختاروها تكون احلى من ملكة جمال الاردن الختارها وزارة الاثار المصرية.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_ab0692f9",
+      "text": "@DimaSadek @AhmadBallout15 ٧ ايار الجايي لازم يسحبوك من شعرك بلكي بتصيري  تفهمي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_525042099616358016",
+      "text": "معقول ؟! \" كل شيء تقوله لسيري من هاتف أبل يتم تخزينه في قاعدة بيانات في أمريكا",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_472477206866718976",
+      "text": "الغريبة ناس بتعمل بلوك و هيا اصلا عيزا بلوك مت اول ما فتحت تويتر يلا ربنا يصبرنا عل الحاجات الي تنفخ دي :)) مش مقصودة :))",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1051450919429296128",
+      "text": "تكفي هيبئة الملوك على آل سعود أجميع حفظهم الله .... ليسو كباقي الرؤساء للدول المجاورة للسعودية",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_948979612415078400",
+      "text": "للأشياء الجميلة التي تسعدك ، حاول إخفائها عن العابرين واجعلها سراً بينك وبين نفسك.. فكل شيء يعرفه البشر يفسدونه ..",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_530301596630929409",
+      "text": "مكتب يرحب بتصريحات رئيس حكومة اقليم التفاصيل:",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_aa8e5c6e",
+      "text": "@yumnafawaz أكلي زباله يا زباله",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9300b200",
+      "text": "@DimaSadek سخيفة وعقلك صغير.... عيب عنجد",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_99972c83",
+      "text": "@DimaSadek ليكِ انت وحدة بلا شرف شو ما حكيتي ...ما حدا رح يعبرك من هل لحظة..ما بقى نرد عليكي لانك تافهة وبلا شرف..حرام ما اهبلك..",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_8ceff821",
+      "text": "@yumnafawaz عم يقلك هو اعمل فردية يا ام نص لسان شو بلا لسان وما بتفهمي كمان",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_672942487409946624",
+      "text": "القلب بيت شيوخ ماهو بفندق ماكل من زاره حبيبي سكن فيه... ودك تصدق ... ماتبي لاتصدق قلبي تربى مايبي من يربيه ...",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_eed157d0",
+      "text": "@user @user @user الصعلوك هم امثالك يا حقير يا نكرة يا نجس.. انت و امثالك عبيد قردوغان الصهيون… @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_668426721704718336",
+      "text": "ههههههههههههه  ممنوع الريتويت     :P",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_492824088348348417",
+      "text": "تكبيرات العيد هنن العيد بالنسبه الي وبس",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_514366570571649024",
+      "text": "القائد العام للقوات المسلحة يامر باحالة على التقاعد التفاصيل:",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_1427663566430158848",
+      "text": "بمر بازفت فترة نفسياً و صحياً و دراسياً و اجتماعياً و كل اشي \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_ce331b8a",
+      "text": "@DimaSadek يعني اخترعتي البارود ��",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_67290a8a",
+      "text": "@DimaSadek كذبي وسلينا يا بهيمة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_976379979180232704",
+      "text": "بين حكيك وشوفتك قصة خجل ، طال فيها الشرح وعيونك دليل.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_668099251357032448",
+      "text": "ولا ترى العين عيباً اذا أحب القلب قلباً",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "mlma_7820b97c",
+      "text": "@user @user @user @user خنازير قطر هذا خنزير من حلفاءكم يطلب مساعدة (سمي النعال) @url",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "jhsc_1232829943089975296",
+      "text": "صورة بتحس طعمها بتمك وريحتها بانفك وصوتها باذنك \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_573035551042904064",
+      "text": "“ ليس عليكَ أن ترد الجميل ولكن كُن أرقى من أن تُنكره .”",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_949884653137289216",
+      "text": "لااااا.. مش بالزبط كده .. ما رح توصل لهاي المرحلة مع احترامي الشديد الك .. هي بالنهاية انه الأطفال بحبو التقليد قي كل شيء .. واكيد لاحظتي انه عّم يأكل سندويش وميقن انها ما بتنصح  وهي عكس ذلك تماماً",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_522770067008655360",
+      "text": "أنا حدا بطلع كل أيام الأسبوع إلّا الخميس .. قرف و أزمة",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_652098563846066000",
+      "text": "يا اخي و بعدين بقصة هالباصات ؟",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "jhsc_710438540111380480",
+      "text": "عزيزتي البنت الجامعية الواعية و الفهمانة المصلى للصلاة مش للاكل و النوم وحتى الدراسة بصوت عالي و شكرا .",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_77baf943",
+      "text": "@DimaSadek ساقطة انت ومن معك وليس رجال الله #ثورة مصدية",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_507821633684262976",
+      "text": ": لا تبخلوا. بنشر الدعاء فلمن دعوتم لهم اجرهم ولكم اجركم لا ينقص منه شيئا رددوها علها ساعة استجابه وصلوا على محمد واله وصحبه. اجمعين\"",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_4ef31f03",
+      "text": "@DimaSadek تفه عليكي انت يا مكرسحة",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1325367769362292737",
+      "text": "كان يكتب بالعرب اليوم مقالات مرتبة لما كان رئيس تحرير بس فعلا يلعن ابو الرخص \n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_ec50f178",
+      "text": "@DimaSadek انشالله بيقبرك ومنرتاح من سمك يا خنزيرة  ����",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1265647508551864323",
+      "text": "الدموع دليل المحبة، لكنها ليست العلاج.\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "letmi_fb34b078",
+      "text": "@DimaSadek ديما الواطية سدي بوزك",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_1047133441643433984",
+      "text": "الدور الذي تريده امريكا لإير ان أن تكون بعبع لإستغلال الدول الخليجية",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_97c3827d",
+      "text": "@yumnafawaz معقول الرئيس قاصصلك الشقفة الناقصة من لسانك حتى بتكرهي وحاقده عليه يا مقروطة اللسان وبالعة نص الأبجدية؟ ���",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_75af0853",
+      "text": "@DimaSadek إذا السيد حسن قبلك مسمار بنعلو إيلك الشرف",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_2703286c",
+      "text": "@yumnafawaz صايرة شاعري يا أم لسان مقروط",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_776568596642328576",
+      "text": "ضل حدا بالوطن العربي ما عرف؟",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "neutral"
+    },
+    {
+      "id": "mlma_05e07944",
+      "text": "يعني فهمتها بمصطلحك ايها البعير يبدوا ان شرب… @user",
+      "source_dataset": "mlma",
+      "dialect": "mixed",
+      "label": "hate",
+      "hate_type": "race",
+      "confidence": 1.0,
+      "original_label": "hateful (target: origin)"
+    },
+    {
+      "id": "letmi_1ebb32ce",
+      "text": "@DimaSadek يقطع عمرك قطع انا دايما  بحترم امك وبقولك يا بنت الحلال بس عن جد  بينتي هلق انك بنت حرام وان شاءالله بيق… https://t.co/JwnFMtHq0e",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_616690182465679360",
+      "text": "مادام فيني نفس يذري وفيني طموح باب وراه اعتزازي...طارقه..طارقه رغم امتداد التعب عيا يموت الطموح…",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_15640cd3",
+      "text": "@berrynawal الصباط كان كتير صغير عليكه لازم يضربوكه بصباط أكبر بكتير#استحي",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_762960939486416000",
+      "text": "و في اكتر من جهة بتقول انهم خلية ارهابية",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_1363128028856004615",
+      "text": "نفسي افهم شو اللي بضحك واحد ثار معه حادث لا وفارط ضحك بطريقه هستيريه وضحكات بتخزي ههههههههههههه\n",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_728287992524181505",
+      "text": "محاكمة مرتكبي الجرائم ضد الانسانيه في سوريا امام المحكمه الجنائية واجب اخلاقي وقانوني يجب على المجتمع الدوليان يضطلع به.",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_099fb21c",
+      "text": "@DimaSadek ديما صوت إسرائيلي واضح،والعهر عندها مش أبو ساعتو،\r\nالهيئة العهر عندها فيه مدرسة.",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_520155319716945921",
+      "text": "بالمناسبة الهاش تاق مسخرة",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "jhsc_539459850762088000",
+      "text": "الجمهور حرق الملعب ",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    },
+    {
+      "id": "letmi_f89e1cb4",
+      "text": "@DimaSadek قال لن يسقط العهد مش الحكومة يا هبلة!",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_e59f51ba",
+      "text": "@DimaSadek عقبالك.. تستقيلي من الاعلام وتوقفي ع المجلى..",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "letmi_9aefb1a1",
+      "text": "@DimaSadek مش غريب تحكي بمنطق رخيص اذا اهلك ما ادبوك نا تحترمي الناس اكيد الشارع ما بادبك. \r\nبنت شارع \r\n\r\n#الا-السيد",
+      "source_dataset": "letmi",
+      "dialect": "levantine",
+      "label": "hate",
+      "hate_type": "gender",
+      "confidence": 1.0,
+      "original_label": "misogyny: misogyny"
+    },
+    {
+      "id": "jhsc_457846702704459776",
+      "text": "بفيدك جداً بمحاضرة \"علوم سياسية \"، لما الدكتورة بتكون بتنازع وهي بتحكي ورقمك ٤٩!! جدا مفيد",
+      "source_dataset": "jhsc",
+      "dialect": "jordanian",
+      "label": "not_hate",
+      "hate_type": null,
+      "confidence": 1.0,
+      "original_label": "positive"
+    }
+  ]
+}

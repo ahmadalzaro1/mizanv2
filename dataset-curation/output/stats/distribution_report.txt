@@ -1,0 +1,68 @@
+======================================================================
+Mizan Benchmark v1 - Quality Report
+======================================================================
+
+## Overview
+Total examples: 500
+Hate: 250 (50.0%)
+Not hate: 250 (50.0%)
+
+## Hate Type Distribution
+  gender: 216 (86.4%)
+  race: 34 (13.6%)
+
+## Source Dataset Distribution
+  jhsc: 246 (49.2%)
+  letmi: 216 (43.2%)
+  mlma: 38 (7.6%)
+
+## Dialect Distribution
+  jordanian: 246 (49.2%)
+  levantine: 216 (43.2%)
+  mixed: 38 (7.6%)
+
+## Text Length Statistics
+  Average length: 72.0 characters
+  Min length: 12 characters
+  Max length: 275 characters
+
+## Sample Examples
+
+### Hate Examples (by type):
+
+**GENDER**:
+  Source: letmi
+  Text: @yumnafawaz @General_Aoun والله اقل شي انتي لازم تنكبي بالحبس مش بس عا افكارك النتنة وقلة احترامك..ع...
+  Original label: misogyny: misogyny
+
+**RACE**:
+  Source: mlma
+  Text: الرعاع وشاربوا بول البعير متى عىفتم كرة القدم لكي تتحدثوا عن لاعب دفع شيخكم تركي الكثير لجلبه وهو حا...
+  Original label: hateful (target: origin)
+
+### Not Hate Examples:
+
+  Source: jhsc
+  Text: و مشاعري !نفسيتي تعبانه كانت خير ان شاء الله
+...
+  Original label: neutral
+
+  Source: jhsc
+  Text: 210208 [ معلومة ] أغنية Eight لآيو بالتعاون مع شوقا تعود لـ Top 10 في مخطط MelOn الأسبوعي وتظل متعاد...
+  Original label: neutral
+
+  Source: jhsc
+  Text: فارس بحكي اكبر مسبة حكاها يا حمار...
+  Original label: positive
+
+  Source: jhsc
+  Text: القيثارة آلة مظلومة موسيقيًا...
+  Original label: neutral
+
+  Source: jhsc
+  Text: ﴿وَقِفوهُم إِنَّهُم مَسئولونَ﴾ [الصافات: ٢٤] واحبسوهم قبل إدخالهم النار للحساب; فهم مسؤولون; ثم بعد ...
+  Original label: neutral
+
+======================================================================
+End of Report
+======================================================================
